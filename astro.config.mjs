@@ -1,10 +1,28 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
+import rehypeExternalLinks from 'rehype-external-links';
+
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
-	integrations: [mdx(), sitemap()],
+  build: {
+    format: 'preserve',
+  },
+  trailingSlash: 'never',
+  site: 'https://invisyarcticfox.uk',
+  server: {
+    port: 4321,
+    open: '/'
+  },
+  adapter: cloudflare({
+    imageService: 'compile'
+  }),
+  integrations: [mdx()],
+  markdown: {
+    rehypePlugins: [
+      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]
+    ]
+  }
 });

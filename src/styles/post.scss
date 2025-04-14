@@ -1,0 +1,43 @@
+#cont {
+  width: 720px;
+}
+
+.post {
+  .info {
+    font-size: 30px;
+    padding-bottom: 20px;
+    .date {
+      font-family: monospace;
+      letter-spacing: -1px;
+      font-size: 25px;
+    }
+    .title {
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .sep {
+      margin: 10px auto;
+      width: 35%;
+      height: 3px;
+      background: var(--ctp-subtext0);
+    }
+  }
+  .text {
+    text-align: left;
+    h2::after {
+      content: "";
+      display: block;
+      width: 15%;
+      height: 3px;
+      background: var(--ctp-subtext0);
+    }
+    p {
+      margin: 5px 0;
+      a {
+        &:hover {
+          color: var(--ctp-green);
+        }
+      }
+    }
+  }
+}
