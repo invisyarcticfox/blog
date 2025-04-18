@@ -9,13 +9,13 @@ const posts = (await getCollection('post')).sort(
 );
 ---
 
-<Layout>
+<Layout title='blog'>
 	<div id="cont">
 		<ul>
 			{
 				posts.map(({ data: { title, pubDate }, id }) => (
 					<li class="post">
-						<a href={`/post/${id}`}>
+						<a href={`/p/${id}`}>
 							<div class="info">
 								<div class="date">
 									<FormattedDate date={pubDate} />

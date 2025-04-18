@@ -24,5 +24,15 @@ export default defineConfig({
     rehypePlugins: [
       [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]
     ]
+  },
+  redirects: {
+    '/post': {
+      status: 307,
+      destination: '/'
+    },
+    '/post/[...slug]': {
+      status: 308,
+      destination: '/p/[...slug]'
+    }
   }
 });

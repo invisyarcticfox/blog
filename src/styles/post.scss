@@ -1,5 +1,6 @@
 #cont {
   width: 720px;
+  margin-bottom: 50px;
 }
 
 .post {
@@ -32,12 +33,29 @@
       background: var(--ctp-subtext0);
     }
     p {
-      margin: 5px 0;
+      margin: 10px 0;
       a {
         &:hover {
           color: var(--ctp-green);
         }
       }
+    }
+    img {
+      width: 49%;
+      height: auto;
+      box-sizing: border-box;
+      border: 5px var(--ctp-green) solid;
+      border-radius: 15px;
+    }
+    .cap {
+      font-style: italic;
+      font-size: 20px;
+      display: block;
+      background-color: var(--ctp-surface0);
+      width: max-content;
+      padding: 5px 15px;
+      position: relative;
+      top: -5px;
     }
   }
 }
