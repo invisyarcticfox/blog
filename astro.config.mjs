@@ -11,7 +11,7 @@ export default defineConfig({
     format: 'preserve',
   },
   trailingSlash: 'never',
-  site: 'https://invisyarcticfox.uk',
+  site: 'https://blog.invisyarcticfox.uk',
   server: {
     port: 4321,
     open: '/'

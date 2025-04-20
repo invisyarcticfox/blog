@@ -1,0 +1,34 @@
+---
+title: 'Rewriting My API'
+pubDate: '20 April 2025 20:56'
+---
+import { Image } from 'astro:assets'
+import terminal from '@img/api/terminal.png'
+
+## Rewriting my API from scratch
+
+###
+
+Throughout the week I've been completely rewriting the code behind my "*personal*" [API](https://api.invisyarcticfox.uk/).
+
+Originally it was just a bunch of js scripts all imported into a single file with no real care put into it. As long as it did what I wanted, it was good enough.
+
+And because I knew how bad the code could be, I kept it private. *And also because api keys were just written in plain text as, again, I knew it wasn't going to be public*.
+
+But now I've rewritten it, admittedly not *entirely* from scratch, I used [Wrangler](https://developers.cloudflare.com/workers/wrangler/) and chose a preset for API routes.
+
+<Image
+  src={terminal} alt={'terminal'}
+  loading={'eager'} title={'wrangler init'}
+  style={{width: `100%`}} width={720}
+/>
+
+But after reading some docs and learning from the example code, I've managed to somewhat replicate my original API in terms of responses and other HTTP requests. The UI was never a big part of it, so I don't plan on doing too much with it, but as long as the responses look good and the code actually works, LGTM :3
+
+I did have to understand how to write typescript, but after writing a few scripts I got the hang of it.
+
+Tbh, I dunno why I keep the API up, I don't really use it anymore? I used to have a little weather widget on an older version of my website (*before I switched to [Astro](https://astro.build) I think?*) but I removed that lol
+
+###
+
+**Anyway**. That's about it. Rewrote my API for no real reason or use :3

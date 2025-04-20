@@ -9,18 +9,16 @@ type Props = CollectionEntry<'post'>['data'];
 const { title, pubDate } = Astro.props;
 ---
 <Layout title={`p: ${title}`}>
-	<div id="cont">
-		<div class="post">
-			<div class="info">
-				<div class="date">
-					<FormattedDate date={pubDate} time />
-				</div>
-				<div class="title">{title}</div>
-				<div class="sep"></div>
+	<div class="post">
+		<div class="info">
+			<div class="date">
+				<FormattedDate date={pubDate} time />
 			</div>
-			<div class="text">
-				<slot />
-			</div>
+			<div class="title">{title}</div>
+			<div class="sep"></div>
+		</div>
+		<div class="text">
+			<slot/>
 		</div>
 	</div>
 </Layout>

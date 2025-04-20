@@ -10,7 +10,18 @@ const posts = (await getCollection('post')).sort(
 ---
 
 <Layout title='blog'>
-	<div id="cont">
+	<div id="head">
+		<h1>InvisyArcticFox's Blog</h1>
+		<div class="desc">
+			<div>Hey, this is my blog :3</div>
+			<div>I'll be writing here what I've done this week, or just about cool stuff i wanna write about.</div>
+			<div>So it's kind of a "journal" rather than a blog, but that's kinda what blogs are right?</div>
+		</div>
+	</div>
+
+	<div class="sep"></div>
+
+	<div id="blogs">
 		<ul>
 			{
 				posts.map(({ data: { title, pubDate }, id }) => (
