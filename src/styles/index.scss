@@ -2,6 +2,10 @@
   text-align: center;
   margin: 0 auto;
 
+  h1 {
+    margin-top: 15px;
+  }
+
   .desc {
     font-size: 20px;
 
@@ -20,22 +24,27 @@
 }
 
 #blogs {
-  width: 512px;
+  width: 540px;
   margin: 0 auto;
   ul {
     list-style: none;
     padding: 0;
     text-align: left;
     li {
-      margin: 10px 0;
+      width: 512px;
+      margin: 10px auto;
+      transition: width 200ms ease;
+      &:hover { width: 100%; }
       a {
         text-decoration: none;
-        &:hover {
-          color: var(--fg);
-        }
+        &:hover { color: var(--fg); }
         .info {
-          background: #020024;
-          background: linear-gradient(90deg, var(--ctp-surface0) 0%, var(--ctp-surface1) 50%, var(--ctp-surface2) 100%);
+          background: linear-gradient(
+            90deg,
+            var(--ctp-surface0) 0%,
+            var(--ctp-surface2) 100%
+          );
+          transition: background 200ms ease;
           padding: 10px 20px;
           border-radius: 15px;
           display: flex;

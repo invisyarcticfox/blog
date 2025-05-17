@@ -30,6 +30,10 @@ export default defineConfig({
       status: 307,
       destination: '/'
     },
+    '/p': {
+      status: 307,
+      destination: '/'
+    },
     '/post/[...slug]': {
       status: 308,
       destination: '/p/[...slug]'

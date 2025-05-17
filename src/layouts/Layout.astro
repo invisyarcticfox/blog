@@ -1,6 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions"
-
 interface Props {
 	title?: string;
 }
@@ -11,7 +9,6 @@ const PgTt = title ? `ItAF - ${title}` : Astro.url
 <!doctype html>
 <html lang="en">
 	<head>
-		<ClientRouter />
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/svg+xml' href='/favicon.png' />
