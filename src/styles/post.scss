@@ -1,6 +1,7 @@
 #cont {
-  width: 720px;
-  margin-bottom: 50px;
+  width: 40vw;
+  margin: 25px auto 50px;
+  text-align: center;
 }
 
 .post {
@@ -20,7 +21,7 @@
       margin: 10px auto;
       width: 35%;
       height: 3px;
-      background: var(--ctp-subtext0);
+      background: var(--fg2);
     }
   }
   .text {
@@ -30,21 +31,16 @@
       display: block;
       width: 15%;
       height: 3px;
-      background: var(--ctp-subtext0);
+      background: var(--fg2);
     }
     p {
       margin: 10px 0;
-      a {
-        &:hover {
-          color: var(--ctp-green);
-        }
-      }
     }
     img {
       width: 49%;
       height: auto;
       box-sizing: border-box;
-      border: 5px var(--ctp-green) solid;
+      border: 5px var(--acc) solid;
       border-radius: 15px;
       margin: 10px auto;
       &[width='720'] { width: 100%; }
@@ -52,5 +48,20 @@
     ol, ul {
       margin: 5px auto 20px;
     }
+  }
+}
+
+#nav {
+  padding: 55px 0 25px;
+  position: relative;
+  .prev {
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+  }
+  .next {
+    position: absolute;
+    right: 0;
+    text-decoration: none;
   }
 }

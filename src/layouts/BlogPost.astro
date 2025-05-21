@@ -1,24 +1,32 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import Layout from './Layout.astro';
-import FormattedDate from '@/components/FormattedDate.astro';
+import type { CollectionEntry } from 'astro:content'
+import Layout from './Layout.astro'
+import FormattedDate from '@/components/FormattedDate.astro'
 import '@/styles/post.scss'
 
-type Props = CollectionEntry<'post'>['data'];
+type Props = CollectionEntry<'post'>['data'] & {
+	prev: CollectionEntry<'post'> | null
+	next: CollectionEntry<'post'> | null
+}
 
-const { title, pubDate } = Astro.props;
+const { title, pubDate, prev, next } = Astro.props
 ---
 <Layout title={`p: ${title}`}>
-	<div class="post">
-		<div class="info">
-			<div class="date">
+	<div class='post'>
+		<div class='info'>
+			<div class='date'>
 				<FormattedDate date={pubDate} time />
 			</div>
-			<div class="title">{title}</div>
-			<div class="sep"></div>
+			<div class='title'>{title}</div>
+			<div class='sep'></div>
 		</div>
-		<div class="text">
+		<div class='text'>
 			<slot/>
 		</div>
+	</div>
+
+	<div id='nav'>
+		{ prev && ( <a class='prev' href={`./${prev.id}`} title={prev.data.title}>&larr; Prev post</a> )}
+		{ next && ( <a class='next' href={`./${next.id}`} title={next.data.title}>Next post &rarr;</a> )}
 	</div>
 </Layout>

@@ -1,30 +1,29 @@
 ---
-interface Props {
-	title?: string;
-}
+interface Props { title?: string }
 const { title } = Astro.props
 const PgTt = title ? `ItAF - ${title}` : Astro.url
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.png' />
+		<link rel='icon' type='image/png' href='https://invisyarcticfox.uk/favicon.png' />
 		<meta name='generator' content={Astro.generator} />
 		<title>{PgTt}</title>
-		<link rel="stylesheet" href="https://invisyarcticfox.uk/master.css">
+		<link rel='stylesheet' href='https://invisyarcticfox.uk/master.css'>
+		<link rel='canonical' href={Astro.url}>
+		<link rel='sitemap' href='/sitemap-index.xml'>
+
 		<meta name='title' content={PgTt}>
 		<meta name='description' content='a gay fox that likes military aviation :3'>
 		<meta name='keywords' content='blender, animation, photography, sona art, furry, invisyarcticfox, invisy arcticfox'>
 		<meta name='image' content='https://cdn.invisyarcticfox.uk/img/embedbanner.png'>
 		<meta name='author' content='invisyarcticfox'>
-
-		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 		<meta name='theme-color' content='#00aa00'>
 		<meta name='robots' content='index, follow'>
-		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+		<meta http-equiv='Content-Type' content='text/html charset=utf-8'>
 		<meta name='language' content='English'>
 		<meta name='revisit-after' content='30 days'>
 
@@ -42,7 +41,7 @@ const PgTt = title ? `ItAF - ${title}` : Astro.url
 		<meta name='twitter:image' content='https://cdn.invisyarcticfox.uk/img/embedbanner.png'>
 	</head>
 	<body>
-		<div id="cont">
+		<div id='cont'>
 			<slot />
 		</div>
 	</body>

@@ -3,7 +3,8 @@
   margin: 0 auto;
 
   h1 {
-    margin-top: 15px;
+    margin: 15px 0;
+    font-size: 50px;
   }
 
   .desc {
@@ -41,18 +42,18 @@
         .info {
           background: linear-gradient(
             90deg,
-            var(--ctp-surface0) 0%,
-            var(--ctp-surface2) 100%
+            var(--bg2) 0%,
+            var(--fg2) 100%
           );
           transition: background 200ms ease;
           padding: 10px 20px;
           border-radius: 15px;
+          font-size: 20px;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
-          .date {
+          time {
             font-family: monospace;
-            font-size: 20px;
             letter-spacing: -1px;
           }
           .title {
@@ -63,5 +64,18 @@
         }
       }
     }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  #cont { width: 95vw; }
+  #head {
+    h1 { font-size: 30px; }
+    .desc { font-size: 20px; }
+  }
+  #blogs {
+    width: 100%;
+    ul { li { width: 100%; } }
   }
 }
