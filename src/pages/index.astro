@@ -1,24 +1,12 @@
 ---
 import { getCollection } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
-import FormattedDate from '@/components/FormattedDate.astro'
+import BlogList from '@/components/BlogList.astro'
 
 import '@/styles/index.scss'
 
-
-export function etaReadTime(body:any) {
-	const wordCount = body.split(/\s+/).length
-	const mins = Math.ceil(wordCount / 225)
-
-	if (mins === 1) {
-		return '~1 min read'
-	} else { return `${mins} min read` }
-}
-
-const posts = ( await getCollection('post')).map(post => {
-	const readTime = etaReadTime(post.body)
-	return { ...post, readTime }
-}).sort(( a, b ) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() )
+const posts = await getCollection('post')
+  .then(posts => posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()))
 ---
 
 <Layout title='blog'>
@@ -33,22 +21,5 @@ const posts = ( await getCollection('post')).map(post => {
 
 	<div class='sep'></div>
 
-	<div id='blogs'>
-		<ul>
-			{
-				posts.map(({ data: { title, pubDate }, id, readTime }) => (
-					<li class='post'>
-						<a href={`/p/${id}`}>
-							<div class='info'>
-								<span>
-									<FormattedDate date={pubDate} /> &bull; <i>{readTime}</i>
-								</span>
-								<div class='title'>{title}</div>
-							</div>
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</div>
+  <BlogList posts={posts} />
 </Layout>

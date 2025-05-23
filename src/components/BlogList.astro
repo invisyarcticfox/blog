@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import FormattedDate from '@/components/FormattedDate.astro'
+
+import { etaReadTime } from '@/scripts/etaReadTime'
+
+type Post = CollectionEntry<'post'>
+const { posts } = Astro.props as { posts: Post[] }
+
+const postData = posts.map(post => ({
+  ...post,
+  readTime: etaReadTime(post.body),
+}))
+---
+
+<div id='blogs'>
+  <ul>
+    {
+      postData.map(({ data: { title, pubDate }, id, readTime }) => (
+        <li class='post'>
+          <a href={`/p/${id}`}>
+            <div class='info'>
+              <span>
+                <FormattedDate date={pubDate} /> &bull; <i>{readTime}</i>
+              </span>
+              <div class='title'>{title}</div>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

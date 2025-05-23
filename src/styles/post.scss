@@ -17,6 +17,11 @@
       font-weight: bold;
       letter-spacing: 2px;
     }
+    .tags {
+      font-size: 22px;
+      opacity: .75;
+      a { text-decoration: none; }
+    }
     .sep {
       margin: 10px auto;
       width: 35%;
@@ -54,14 +59,15 @@
 #nav {
   padding: 55px 0 25px;
   position: relative;
-  .prev {
+  .btn {
     position: absolute;
-    left: 0;
     text-decoration: none;
+    svg {
+      position: relative;
+      vertical-align: middle;
+      bottom: 2px;
+    }
   }
-  .next {
-    position: absolute;
-    right: 0;
-    text-decoration: none;
-  }
+  .prev { left: 0; }
+  .next { right: 0; }
 }

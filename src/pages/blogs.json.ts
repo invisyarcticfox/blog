@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content'
+import { etaReadTime } from '@/scripts/etaReadTime'
 
 export async function GET() {
   const posts = await getCollection('post')
@@ -9,10 +10,13 @@ export async function GET() {
     return dateA.getTime() - dateB.getTime()
   })
 
-  const postData = posts.map(({ data: { title, pubDate }, id }) => ({
+  const postData = posts.map(({ data: { title, pubDate, tags }, id, body }) => ({
     title,
     id,
-    date: pubDate
+    tags,
+    body,
+    date: pubDate,
+    readTime: etaReadTime(body)
   }))
 
   return new Response(JSON.stringify(postData, null, 2), {

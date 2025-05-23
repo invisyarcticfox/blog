@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import BlogList from '@/components/BlogList.astro'
+
+import '@/styles/index.scss'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('post')
+
+  const tags = posts.flatMap((post) => post.data.tags || [])
+  const uniqueTags = [...new Set(tags)]
+
+  return uniqueTags.map((tag) => ({
+    params: { tag },
+  }))
+}
+
+const { tag } = Astro.params
+const posts = (await getCollection('post'))
+  .filter(post => post.data.tags?.includes(tag))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+---
+
+<Layout title={`t: #${tag}`}>
+  <div id='head'>
+    <h1 style='font-size: 40px;'>Posted tagged: #{tag}</h1>
+  </div>
+
+  <div class='sep'></div>
+
+  <BlogList posts={posts} />
+</Layout>

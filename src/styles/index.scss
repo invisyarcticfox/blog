@@ -3,7 +3,7 @@
   margin: 0 auto;
 
   h1 {
-    margin: 15px 0;
+    margin: 35px 0 15px 0;
     font-size: 50px;
   }
 
@@ -25,33 +25,34 @@
 }
 
 #blogs {
-  width: 540px;
+  width: 30%;
   margin: 0 auto;
+
   ul {
     list-style: none;
     padding: 0;
     text-align: left;
+
     li {
-      width: 512px;
+      background: linear-gradient(to right, #212131, #313141);
+      border-radius: 15px;
+      width: 95%;
       margin: 10px auto;
+      padding: 5px 0;
       transition: width 200ms ease;
       &:hover { width: 100%; }
+
       a {
         text-decoration: none;
         &:hover { color: var(--fg); }
+
         .info {
-          background: linear-gradient(
-            90deg,
-            var(--bg2) 0%,
-            var(--fg2) 100%
-          );
-          transition: background 200ms ease;
           padding: 10px 20px;
-          border-radius: 15px;
           font-size: 20px;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
+
           time {
             font-family: monospace;
             letter-spacing: -1px;

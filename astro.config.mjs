@@ -23,17 +23,13 @@ export default defineConfig({
     ]
   },
   redirects: {
-    '/post': {
-      status: 307,
-      destination: '/'
-    },
     '/p': {
-      status: 307,
+      status: 301,
       destination: '/'
     },
-    '/post/[...slug]': {
-      status: 308,
-      destination: '/p/[...slug]'
+    '/tags': {
+      status: 301,
+      destination: '/'
     }
   }
 })
