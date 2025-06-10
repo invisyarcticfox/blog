@@ -1,0 +1,55 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+---
+
+<Layout>
+  <div class='error'>
+    <Image
+      src={'https://cdn.invisyarcticfox.uk/avatar.png'} alt={'avt'}
+      width={256} height={256} loading={'eager'}
+    />
+    <p class='err'><b>404: Not found</b></p>
+    <p class='path'>Path: <span>/404</span></p>
+    <p class='back'><a href='#' onclick='history.back()'>back</a></p>
+  </div>
+</Layout>
+
+<style is:inline>
+  .error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    text-align: center;
+  }
+  img {
+    border-radius: 25%;
+    border: 5px var(--fg2) solid;
+    filter: saturate(50%);
+    box-sizing: border-box;
+  }
+  p {
+    margin: 5px 0;
+    font-size: 30px;
+  }
+  .path {
+    font-size: 25px;
+    background: var(--bg2);
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px var(--fg2) solid;
+  }
+  .path span {
+    font-family: monospace;
+    font-weight: bold;
+  }
+</style>
+
+<script>
+  const urlPth = window.location.pathname
+  const pathElem = document.querySelector('.path span') as HTMLElement
+  pathElem.textContent = urlPth
+  document.title = `ERR 404 (${urlPth})`
+</script>

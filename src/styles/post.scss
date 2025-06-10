@@ -1,13 +1,19 @@
+@use './extras' as *;
+
+
 #cont {
   width: 40vw;
   margin: 25px auto 50px;
   text-align: center;
 }
 
+
 .post {
+
   .info {
     font-size: 30px;
     padding-bottom: 20px;
+
     .date {
       font-family: monospace;
       letter-spacing: -1px;
@@ -20,8 +26,10 @@
     .tags {
       font-size: 22px;
       opacity: .75;
+      margin: 2px 0;
       a { text-decoration: none; }
     }
+    
     .sep {
       margin: 10px auto;
       width: 35%;
@@ -29,32 +37,32 @@
       background: var(--fg2);
     }
   }
+
   .text {
     text-align: left;
-    h2::after {
-      content: "";
-      display: block;
-      width: 15%;
-      height: 3px;
-      background: var(--fg2);
-    }
-    p {
-      margin: 10px 0;
-    }
+
+    p { margin: 10px 0; }
+
     img {
       width: 49%;
       height: auto;
       box-sizing: border-box;
       border: 5px var(--acc) solid;
       border-radius: 15px;
-      margin: 10px auto;
+      margin: 5px auto;
       &[width='720'] { width: 100%; }
     }
-    ol, ul {
-      margin: 5px auto 20px;
+
+    ol, ul { margin: 5px auto 20px; }
+
+    sup {
+      font-size: .75em;
+      font-style: italic;
+      a { text-decoration: none; }
     }
   }
 }
+
 
 #nav {
   padding: 55px 0 25px;
@@ -66,8 +74,41 @@
       position: relative;
       vertical-align: middle;
       bottom: 2px;
+      width: 24px;
+      height: 24px;
+      transition-property: left, right;
+      transition-duration: 200ms;
+      transition-timing-function: ease;
     }
   }
-  .prev { left: 0; }
-  .next { right: 0; }
+  .prev {
+    &:hover { svg { right: 5px; } }
+    left: 0;
+    svg {
+      right: 0;
+      transform: rotate(0);
+    }
+  }
+  .next {
+    &:hover { svg { left: 5px; } }
+    right: 0;
+    svg {
+      left: 0;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+
+@include mobile {
+  #cont { width: 95vw; margin: 20px auto; }
+  .post {
+    .info {
+      font-size: 28px;
+      .date { font-size: 22px;}
+      .sep { width: 75%; }
+    }
+    .text { img { margin: 2px auto; width: 48%;  } }
+  }
+  #nav { padding-bottom: 75px; }
 }

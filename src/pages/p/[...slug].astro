@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { getCollection } from 'astro:content'
 import { render } from 'astro:content'
 import BlogPost from '@/layouts/BlogPost.astro'
 
@@ -17,13 +17,6 @@ export async function getStaticPaths() {
 			props: { post, prevPost, nextPost },
 		}
 	})
-}
-
-
-type Props = {
-	post: CollectionEntry<'post'>
-	prevPost: CollectionEntry<'post'> | null
-	nextPost: CollectionEntry<'post'> | null
 }
 
 const { post, prevPost, nextPost } = Astro.props

@@ -10,29 +10,27 @@ import arm from '@img/substance/arm.png'
 import neck from '@img/substance/neck.png'
 
 
-## Starting to learn Substance Painter 3D
-
-###
-
 Yesterday I started to learn [Substance Painter 3D](https://www.adobe.com/uk/products/substance3d/apps/painter.html).
 I wanted to completely redo all the textures for my 3D model.
+
 <Image
   src={currtex} alt={'currtex'}
   loading={'eager'} width={720}
 />
-This is the current texture I'm using for my model. Just looking at it like this, it looks fine for the most part, it's what you'd expect from an unwrapped texture.
 
+This is the current texture I'm using for my model. Just looking at it like this, it looks fine for the most part, it's what you'd expect from an unwrapped texture.
 But upon looking at the model up close, some things become pretty obvious.
 
 ###
 
 <Image src={arm} alt={'arm'} loading={'lazy'} />
 <Image src={neck} alt={'neck'} loading={'lazy'} />
+
 For starters, the texturing isn't all that great. I did all of it with [GIMP](https://gimp.org) and I have absolutely zero experience with actually texturing models. Thankfully, the photoshop files that came with [the model](https://juliawinterpaw.gumroad.com/l/canine) were actually pretty easy to use, and changing the colours of what I want was pretty easy too.
 
 *Buuttttt* some things were just **extremely** hard to get right. One example are the blue lines that go down from my sona's head to his legs. Doing this in GIMP was a *paaiiinnnn*, especially using the path tool.
 
-Function-wise, it worked fine, but for what I wanted it was just so damn annoying. And getting the black stripes on his arms to properly mirror<sup>*(?)*</sup> on the underside of the arm was a pain too.
+Function-wise, it worked fine, but for what I wanted it was just so damn annoying. And getting the black stripes on his arms to properly mirror<sup>(?)</sup> on the underside of the arm was a pain too.
 
 ###
 
@@ -40,6 +38,7 @@ Function-wise, it worked fine, but for what I wanted it was just so damn annoyin
   src={sp3d} alt={'sp3d'}
   loading={'lazy'} width={720}
 />
+
 So, yesterday I started learning Substance Painter. And right off the bat, the path tools are so much easier to use. I can see the exact vertices I'm drawing over, and the path tool has automatic curves so the lines don't look so straight.
 
 I also wish the resolution of the texture was better, as zooming in reveals the interpolation blender is doing to smooth out the edges, but the texture is already `4096x4096`px big, and an 8k texture is just not something I particularly need. I did try separate the head texture from the rest of the body, but that just got annoying and didn't really do anything noticeable.

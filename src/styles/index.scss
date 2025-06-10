@@ -1,3 +1,6 @@
+@use './extras' as *;
+
+
 #head {
   text-align: center;
   margin: 0 auto;
@@ -69,12 +72,13 @@
 }
 
 
-@media screen and (max-width: 500px) {
-  #cont { width: 95vw; }
+@include mobile {
+  #cont { width: 95vw; margin: 0 auto; }
   #head {
     h1 { font-size: 30px; }
     .desc { font-size: 20px; }
   }
+  .sep { width: 75%; }
   #blogs {
     width: 100%;
     ul { li { width: 100%; } }

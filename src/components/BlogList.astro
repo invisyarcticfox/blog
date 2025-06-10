@@ -16,14 +16,20 @@ const postData = posts.map(post => ({
 <div id='blogs'>
   <ul>
     {
-      postData.map(({ data: { title, pubDate }, id, readTime }) => (
+      postData.map(({ data: { title, pubDate, re }, id, readTime }) => (
         <li class='post'>
           <a href={`/p/${id}`}>
             <div class='info'>
               <span>
-                <FormattedDate date={pubDate} /> &bull; <i>{readTime}</i>
+                <FormattedDate date={pubDate} />
+                &bull;
+                <i>{readTime}</i>
               </span>
-              <div class='title'>{title}</div>
+              <div class='title'>
+                { re ? (
+                  'Re: ' + title
+                ) : title }
+              </div>
             </div>
           </a>
         </li>

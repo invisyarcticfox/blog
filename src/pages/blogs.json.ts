@@ -5,17 +5,17 @@ export async function GET() {
   const posts = await getCollection('post')
   
   posts.sort((a, b) => {
-    const dateA = new Date(a.data.pubDate)
-    const dateB = new Date(b.data.pubDate)
+    const dateA = new Date(b.data.pubDate)
+    const dateB = new Date(a.data.pubDate)
     return dateA.getTime() - dateB.getTime()
   })
 
   const postData = posts.map(({ data: { title, pubDate, tags }, id, body }) => ({
     title,
     id,
-    tags,
     body,
     date: pubDate,
+    tags,
     readTime: etaReadTime(body)
   }))
 
