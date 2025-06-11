@@ -1,5 +1,5 @@
 import { getCollection } from 'astro:content'
-import { etaReadTime } from '@/scripts/etaReadTime'
+import { etaReadTime, charCounter } from '@/scripts'
 
 export async function GET() {
   const posts = await getCollection('post')
@@ -16,7 +16,8 @@ export async function GET() {
     body,
     date: pubDate,
     tags,
-    readTime: etaReadTime(body)
+    readTime: etaReadTime(body),
+    charCount: charCounter(body)
   }))
 
   return new Response(JSON.stringify(postData, null, 2), {

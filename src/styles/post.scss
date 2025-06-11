@@ -2,7 +2,8 @@
 
 
 #cont {
-  width: 40vw;
+  width: 45vw;
+  font-size: 30px;
   margin: 25px auto 50px;
   text-align: center;
 }
@@ -11,20 +12,25 @@
 .post {
 
   .info {
-    font-size: 30px;
+    font-size: 1em;
     padding-bottom: 20px;
 
     .date {
       font-family: monospace;
       letter-spacing: -1px;
-      font-size: 25px;
+      font-size: .85em;
     }
     .title {
+      font-size: 1.2em;
       font-weight: bold;
       letter-spacing: 2px;
     }
+    .stats {
+      font-size: .75em;
+      font-style: italic;
+    }
     .tags {
-      font-size: 22px;
+      font-size: .75em;
       opacity: .75;
       margin: 2px 0;
       a { text-decoration: none; }
@@ -52,6 +58,10 @@
       margin: 5px auto;
       &[width='720'] { width: 100%; }
     }
+
+    .gap { margin: 45px 0; }
+
+    h3 { margin: 50px 0 15px; }
 
     ol, ul { margin: 5px auto 20px; }
 
@@ -101,11 +111,11 @@
 
 
 @include mobile {
-  #cont { width: 95vw; margin: 20px auto; }
+  #cont { width: 90vw; margin: 20px auto; font-size: 25px; }
   .post {
     .info {
-      font-size: 28px;
-      .date { font-size: 22px;}
+      font-size: .9em;
+      .date, .stats { font-size: .8em;}
       .sep { width: 75%; }
     }
     .text { img { margin: 2px auto; width: 48%;  } }

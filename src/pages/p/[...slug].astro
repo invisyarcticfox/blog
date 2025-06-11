@@ -3,26 +3,33 @@ import { getCollection } from 'astro:content'
 import { render } from 'astro:content'
 import BlogPost from '@/layouts/BlogPost.astro'
 
+import { etaReadTime, charCounter } from '@/scripts'
+
 export async function getStaticPaths() {
 	const posts = await getCollection('post')
 	
 	posts.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 
+	
 	return posts.map((post, i) => {
-		const prevPost = i > 0 ? posts[i - 1] : null
-		const nextPost = i < posts.length - 1 ? posts[i + 1] : null
+		const nav = {
+			prev: i > 0 ? posts[i - 1] : null,
+			next: i < posts.length - 1 ? posts[i + 1] : null
+		}
+		const readTime = etaReadTime(post.body)
+		const charCount = charCounter(post.body)
 
 		return {
 			params: { slug: post.id },
-			props: { post, prevPost, nextPost },
+			props: { post, nav, readTime, charCount },
 		}
 	})
 }
 
-const { post, prevPost, nextPost } = Astro.props
+const { post, nav, readTime, charCount } = Astro.props
 const { Content } = await render(post)
 ---
 
-<BlogPost {...post.data} prev={prevPost} next={nextPost}>
+<BlogPost {...post.data} {nav} readTime={readTime} charCount={charCount}>
 	<Content />
 </BlogPost>

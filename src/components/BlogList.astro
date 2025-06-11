@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content'
 import FormattedDate from '@/components/FormattedDate.astro'
 
-import { etaReadTime } from '@/scripts/etaReadTime'
+import { etaReadTime } from '@/scripts'
 
 type Post = CollectionEntry<'post'>
 const { posts } = Astro.props as { posts: Post[] }

@@ -5,7 +5,8 @@ import FormattedDate from '@/components/FormattedDate.astro'
 import '@/styles/post.scss'
 import Arrow from '@/assets/arrow.svg'
 
-const { title, pubDate, tags, re, prev, next } = Astro.props
+const { title, pubDate, tags, re, nav, readTime, charCount } = Astro.props
+const { prev, next } = nav || { prev:null, next:null }
 ---
 
 <Layout title={`p: ${title}`}>
@@ -20,6 +21,7 @@ const { title, pubDate, tags, re, prev, next } = Astro.props
 					</>
 				) : title }
 			</div>
+			<div class="stats">{readTime}, {charCount}</div>
 			<div class='tags'>
 				{ 
 					tags && tags.length > 0 ? (
