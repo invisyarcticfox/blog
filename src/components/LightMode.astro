@@ -1,0 +1,33 @@
+<button class='oldmode' onclick='' >for example</button>
+
+<script is:inline>
+  const tglBtn = document.querySelector('button.oldmode')
+  const bodyElem = document.body
+
+  const clsNmToTgl = 'old'
+
+  tglBtn.addEventListener('click', () => { bodyElem.classList.toggle(clsNmToTgl) })
+</script>
+
+<style is:inline lang='scss'>
+  body.old {
+    background: #141414;
+    color: #fff;
+
+    a { color: #0e0; }
+  }
+
+  button {
+    font-size: 25px;
+    margin: 0;
+    padding: 5px 10px;
+    background: var(--fg);
+    color: var(--bg);
+    border-radius: 15px;
+    border: 0;
+    transform: scale(1);
+    transition: transform 50ms ease;
+    &:hover { cursor: pointer; }
+    &:active { transform: scale(.95); }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+title: 'Struggling with a visual style'
+pubDate: '3 July 2025 13:03'
+tags: [ 'web', 'design' ]
+---
+import { Image } from 'astro:assets'
+import links from '@img/style/links.png'
+import icons from '@img/style/icons.png'
+import sonaart from '@img/style/sonaart.png'
+import LightMode from '@/components/LightMode.astro'
+
+As of recent, I've been struggling with designing an index page for my [main index](https://invisyarcticfox.uk).
+
+I've been through so many different iterations but I can never seem to land on a design that I really like.
+
+The thing I've had most trouble styling are these links.
+<Image
+  src={links} alt={'links'}
+  width={720} loading={'eager'}
+/>
+I can never seem to land on a good style for them, and them alone have had about five different styles.
+
+From [linktree](https://linktr.ee) style links to just plain text like in that image.
+
+<Image
+  src={icons} alt={'icons'}
+  width={720} loading={'eager'}
+/>
+I know for a fact I want to keep how these are styled, I like them being icons rather than just text links.
+
+And speaking of the icons, for as long as I can, I am absolutely keeping that twitter logo.
+I **refuse** to use the new logo or call it "𝕏".
+
+*Anyway, going back to style,* another thing I really like is this [catppuccin mocha](https://catppuccin.com/palette/) colour palette.
+I've been debating whether to include the light theme or a toggle to go back to my "old style" which is just the background being [`#141414`](https://www.colorhexa.com/141414) and the text `#fff`, but I've turned off all analytics I can in cloudflare so I don't even know how many people even go to my website, let alone care about a light theme *(which even I don't, light themes suck :3)*
+
+<div class='gap' />
+
+Click this to get a quick example of what style I had before :3
+<LightMode />
+
+<div class='gap' />
+
+I'm quite happy with how the blog looks personally, just a list of blog posts with all the important information, and the actual blog post *itself* has more information and of course the contents. I like the width, I like the info at the top, looks good :)
+
+I wanted to have background images for each blog post in a list, but wasn't sure what images to use, nor how to really incorporate it very well, so it's just grey instead!
+
+I'm also very happy with how the page for my sona's art looks, I really like the visual of the bar at the bottom blurring the background and having the artist's username along with the date I got the art. Pretty simple in premise but visually it's just pretty pleasing.
+<Image
+  src={sonaart} alt={'sonaart'}
+  loading={'eager'}
+/>
+
+Maybe one day after I've actually learned how to make a website look decent I'll figure out a style idk
+
+I just don't wanna rip-off someone else's style or just copy all the concepts, I wanna actually make something *I* made.

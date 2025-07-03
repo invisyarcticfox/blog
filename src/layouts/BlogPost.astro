@@ -17,7 +17,7 @@ const { prev, next } = nav || { prev:null, next:null }
 				{ re ? (
 					<>
 						Re:
-						<a href={`./${re}`}>{title}</a>
+						<a href={`./${re}`}>{title.substring(4)}</a>
 					</>
 				) : title }
 			</div>
