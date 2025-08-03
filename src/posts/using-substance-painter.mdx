@@ -1,7 +1,6 @@
 ---
 title: 'Using Substance Painter'
 pubDate: '18 April 2025 14:24'
-tags: [ '3d', 'substance-painter' ]
 ---
 import { Image } from 'astro:assets'
 import sp3d from '@img/substance/substancepainter.png'
@@ -23,8 +22,10 @@ But upon looking at the model up close, some things become pretty obvious.
 
 <div class='gap'/>
 
-<Image src={arm} alt={'arm'} loading={'lazy'} />
-<Image src={neck} alt={'neck'} loading={'lazy'} />
+<div class='two img'>
+  <Image src={arm} alt={'arm'} loading={'lazy'} />
+  <Image src={neck} alt={'neck'} loading={'lazy'} />
+</div>
 
 For starters, the texturing isn't all that great. I did all of it with [GIMP](https://gimp.org) and I have absolutely zero experience with actually texturing models. Thankfully, the photoshop files that came with [the model](https://juliawinterpaw.gumroad.com/l/canine) were actually pretty easy to use, and changing the colours of what I want was pretty easy too.
 

@@ -15,14 +15,11 @@ export async function GET(context: { site: string }) {
     title: 'InvisyArcticFox\'s Blog',
     description: 'For when I just wanna write about stuff!',
     site: context.site,
-    items: posts.map(({ data: { title, pubDate, tags }, id, body }) => ({
+    items: posts.map(({ data: { title, pubDate }, id, body }) => ({
       title,
       link: `/p/${id}`,
       pubDate,
-      customData: `
-        <tags>${tags.join(', ')}</tags>
-        <readTime>${etaReadTime(body)}</readTime>
-      `
+      customData: `<readTime>${etaReadTime(body)}</readTime>`
     })),
   });
 }

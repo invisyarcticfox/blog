@@ -1,124 +1,59 @@
-@use './extras' as *;
+main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
 
 
-#cont {
-  width: 45vw;
-  font-size: 30px;
-  margin: 25px auto 50px;
+.info {
   text-align: center;
+  padding-bottom: 25px;
+  .date { font-family: monospace; font-size: .75em; }
+  .title { font-weight: bold; font-size: 1.25em; }
+  .stats { font-size: .75em; font-style: italic; }
+  .sep {
+    width: 50%;
+    height: 3px;
+    background: var(--fg);
+    margin: 10px auto;
+  }
 }
 
-
-.post {
-
-  .info {
-    font-size: 1em;
-    padding-bottom: 20px;
-
-    .date {
-      font-family: monospace;
-      letter-spacing: -1px;
-      font-size: .85em;
-    }
-    .title {
-      font-size: 1.2em;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-    .stats {
-      font-size: .75em;
-      font-style: italic;
-    }
-    .tags {
-      font-size: .75em;
-      opacity: .75;
-      margin: 2px 0;
-      a { text-decoration: none; }
-    }
-    
-    .sep {
-      margin: 10px auto;
-      width: 35%;
-      height: 3px;
-      background: var(--fg2);
-    }
+.text {
+  p { margin: 10px 0; }
+  img {
+    width: 100%;
+    height: auto;
+    border: 5px solid var(--acc);
+    border-radius: var(--radius);
+    box-sizing: border-box;
   }
-
-  .text {
-    text-align: left;
-
-    p { margin: 10px 0; }
-
-    img {
-      width: 49%;
-      height: auto;
-      box-sizing: border-box;
-      border: 5px var(--acc) solid;
-      border-radius: 15px;
-      margin: 5px auto;
-      &[width='720'] { width: 100%; }
-    }
-
-    .gap { margin: 45px 0; }
-
-    h3 { margin: 50px 0 15px; }
-
-    ol, ul { margin: 5px auto 20px; }
-
-    sup {
-      font-size: .75em;
-      font-style: italic;
-      a { text-decoration: none; }
-    }
+  .two.img {
+    img { width: calc(49% - (5px * 2)); margin: 0 5px; }
   }
 }
 
 
 #nav {
-  padding: 55px 0 25px;
-  position: relative;
-  .btn {
-    position: absolute;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+  a {
+    &:hover svg { transform: translateX(-3px); }
+    &.next { svg { rotate: 180deg; } }
+    &.disabled {
+      &:hover svg { transform: translateX(3px); }
+      color: var(--fg);
+      opacity: .5;
+      cursor: default;
+    }
     text-decoration: none;
     svg {
-      position: relative;
-      vertical-align: middle;
-      bottom: 2px;
-      width: 24px;
-      height: 24px;
-      transition-property: left, right;
-      transition-duration: 200ms;
-      transition-timing-function: ease;
+      width: 35px;
+      height: 35px;
+      vertical-align: sub;
+      transform: translateX(3px);
+      transition: transform var(--trans);
     }
   }
-  .prev {
-    &:hover { svg { right: 5px; } }
-    left: 0;
-    svg {
-      right: 0;
-      transform: rotate(0);
-    }
-  }
-  .next {
-    &:hover { svg { left: 5px; } }
-    right: 0;
-    svg {
-      left: 0;
-      transform: rotate(180deg);
-    }
-  }
-}
-
-
-@include mobile {
-  #cont { width: 90vw; margin: 20px auto; font-size: 25px; }
-  .post {
-    .info {
-      font-size: .9em;
-      .date, .stats { font-size: .8em;}
-      .sep { width: 75%; }
-    }
-    .text { img { margin: 2px auto; width: 48%;  } }
-  }
-  #nav { padding-bottom: 75px; }
 }

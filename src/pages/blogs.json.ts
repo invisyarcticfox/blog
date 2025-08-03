@@ -10,12 +10,11 @@ export async function GET() {
     return dateA.getTime() - dateB.getTime()
   })
 
-  const postData = posts.map(({ data: { title, pubDate, tags }, id, body }) => ({
+  const postData = posts.map(({ data: { title, pubDate }, id, body }) => ({
     title,
     id,
-    body,
+    body: charCounter(body, false, true),
     date: pubDate,
-    tags,
     readTime: etaReadTime(body),
     charCount: charCounter(body)
   }))

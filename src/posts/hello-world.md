@@ -1,7 +1,6 @@
 ---
 title: 'Hello World'
 pubDate: '14 April 2025 14:24'
-tags: [ 'intro' ]
 ---
 
 Thought it'd be nice to get a blog running, gonna just post about cool stuff I do.

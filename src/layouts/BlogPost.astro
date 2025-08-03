@@ -5,7 +5,7 @@ import FormattedDate from '@/components/FormattedDate.astro'
 import '@/styles/post.scss'
 import Arrow from '@/assets/arrow.svg'
 
-const { title, pubDate, tags, re, nav, readTime, charCount } = Astro.props
+const { title, pubDate, re, nav, readTime, charCount } = Astro.props
 const { prev, next } = nav || { prev:null, next:null }
 ---
 
@@ -13,35 +13,27 @@ const { prev, next } = nav || { prev:null, next:null }
 	<div class='post'>
 		<div class='info'>
 			<div class='date'><FormattedDate date={pubDate} showTime /></div>
-			<div class='title'>
-				{ re ? (
-					<>
-						Re:
-						<a href={`./${re}`}>{title.substring(4)}</a>
-					</>
-				) : title }
-			</div>
-			<div class="stats">{readTime}, {charCount}</div>
-			<div class='tags'>
-				{ 
-					tags && tags.length > 0 ? (
-						tags.map(( tag:string, i:number ) => (
-							<>
-								<span><a href={`../tags/${tag}`}>#{tag}</a></span>{i < tags.length - 1 ? ', ' : '' }
-							</>
-						))
-					) : null 
-				}
-			</div>
+			<div class='title'> { re ? ( <> Re: <a href={`./${re}`}>{title.substring(4)}</a> </> ) : title } </div>
+			<div class='stats'>{readTime} - {charCount}</div>
 			<div class='sep' />
 		</div>
-		<div class='text'>
-			<slot/>
-		</div>
+		<div class='text'> <slot/> </div>
 	</div>
 
 	<div id='nav'>
-		{ prev && ( <a class='prev btn' href={`./${prev.id}`} title={prev.data.title}><Arrow /> Prev post</a> )}
-		{ next && ( <a class='next btn' href={`./${next.id}`} title={next.data.title}>Next post <Arrow /></a> )}
+		<a
+			class={`btn prev ${prev ? '' : 'disabled'}`}
+			href={prev ? `./${prev.id}` : '#'}
+			title={prev ? prev.data.title : undefined}
+		>
+			<Arrow /> Prev Post
+		</a>
+		<a
+			class={`btn next ${next ? '' : 'disabled'}`}
+			href={next ? `./${next.id}` : null}
+			title={next ? next.data.title : undefined}
+		>
+			Next Post <Arrow />
+		</a>
 	</div>
 </Layout>

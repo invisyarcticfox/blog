@@ -30,6 +30,6 @@ const { post, nav, readTime, charCount } = Astro.props
 const { Content } = await render(post)
 ---
 
-<BlogPost {...post.data} {nav} readTime={readTime} charCount={charCount}>
+<BlogPost {...post.data} {nav} {readTime} {charCount}>
 	<Content />
 </BlogPost>

@@ -1,86 +1,43 @@
-@use './extras' as *;
+main { width: 75%; margin: 0 auto; }
 
 
 #head {
-  text-align: center;
-  margin: 0 auto;
-
-  h1 {
-    margin: 35px 0 15px 0;
-    font-size: 50px;
-  }
-
-  .desc {
-    font-size: 20px;
-
-    div:first-child {
-      font-size: 25px;
-    }
-  }
+  text-align: center; 
+  h1 { margin: 0; }
 }
 
+
 .sep {
-  width: 35%;
+  width: 50%;
   height: 3px;
-  background: #aaa;
-  border-radius: 25px;
-  margin: 15px auto 25px;
+  background: var(--fg);
+  margin: 10px auto;
 }
 
 #blogs {
-  width: 30%;
+  width: 45%;
   margin: 0 auto;
-
   ul {
     list-style: none;
+    margin: 0;
     padding: 0;
-    text-align: left;
-
     li {
-      background: linear-gradient(to right, #212131, #313141);
-      border-radius: 15px;
-      width: 95%;
-      margin: 10px auto;
-      padding: 5px 0;
-      transition: width 200ms ease;
       &:hover { width: 100%; }
-
+      margin: 10px auto;
+      background: hsl(from var(--bg) h s calc(l * 2));
+      border-radius: var(--radius);
+      width: 95%;
+      transition: width var(--trans);
       a {
         text-decoration: none;
-        &:hover { color: var(--fg); }
-
-        .info {
-          padding: 10px 20px;
-          font-size: 20px;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-
-          time {
-            font-family: monospace;
-            letter-spacing: -1px;
-          }
-          .title {
-            font-weight: bold;
-            font-size: 25px;
-            letter-spacing: 2px;
-          }
+        color: var(--fg);
+        .text {
+          padding: 15px 20px;
+          font-size: .75em;
+          .info { time { font-family: monospace; letter-spacing: -1; } }
+          .title { font-weight: bold; font-size: 1.15em; }
         }
       }
     }
-  }
-}
-
-
-@include mobile {
-  #cont { width: 95vw; margin: 0 auto; }
-  #head {
-    h1 { font-size: 30px; }
-    .desc { font-size: 20px; }
-  }
-  .sep { width: 75%; }
-  #blogs {
-    width: 100%;
-    ul { li { width: 100%; } }
   }
 }

@@ -1,4 +1,4 @@
-export function etaReadTime(body:any, wpm:number=225) {
+export function etaReadTime(body:any, wpm:number=225):string {
 	const wordCount = body.split(/\s+/).length
 	const mins = Math.ceil(wordCount / wpm)
 
@@ -6,9 +6,8 @@ export function etaReadTime(body:any, wpm:number=225) {
 	} else { return `${mins} min read` }
 }
 
-//
 
-export function charCounter(body:any, comma:boolean=true):string {
+export function charCounter(body:any, comma:boolean=true, txt:boolean=false):string {
 	const cleanBody = body.replace(
 		// removes import lines
 		/^(?:import\s+.*?from\s+['"].*?['"];?\s*|\s*\n)+/g,
@@ -21,9 +20,10 @@ export function charCounter(body:any, comma:boolean=true):string {
 		// removes md links
 		/\[(.*?)\]\(.*?\)/g,
 		'$1'
-	).length
+	).replace(/[\n\r]/g, '')
 
 
-	if (comma) { return `${cleanBody.toLocaleString('en-gb')} characters`
-	} else { return `${cleanBody} characters` }
+	if (comma && !txt) { return `${cleanBody.length.toLocaleString('en-gb')} characters`
+	} else if (txt && !comma) { return cleanBody
+	} else { return `${cleanBody.length} characters` }
 }

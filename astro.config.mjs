@@ -26,10 +26,6 @@ export default defineConfig({
     '/p': {
       status: 301,
       destination: '/'
-    },
-    '/tags': {
-      status: 301,
-      destination: '/'
     }
   }
 })
