@@ -16,7 +16,7 @@ const postData = posts.map(post => ({
 <div id='blogs'>
   <ul>
     {
-      postData.map(({ data: { title, pubDate, re }, id, readTime }) => (
+      postData.map(({ data: { title, pubDate }, id, readTime }) => (
         <li class='post'>
           <a href={`/p/${id}`}>
             <div class='text'>
@@ -25,7 +25,7 @@ const postData = posts.map(post => ({
                 &bull;
                 <i>{readTime}</i>
               </span>
-              <div class='title'> { re ? ( 'Re: ' + title ) : title } </div>
+              <div class='title'>{title}</div>
             </div>
           </a>
         </li>
