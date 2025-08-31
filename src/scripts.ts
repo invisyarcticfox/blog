@@ -1,5 +1,6 @@
 export function etaReadTime(body:any, wpm:number=225):string {
-	const wordCount = body.split(/\s+/).length
+	const content = body || ''
+	const wordCount = content.split(/\s+/).length
 	const mins = Math.ceil(wordCount / wpm)
 
 	if (mins === 1) { return '~1 min read'
@@ -8,7 +9,8 @@ export function etaReadTime(body:any, wpm:number=225):string {
 
 
 export function charCounter(body:any, comma:boolean=true, txt:boolean=false):string {
-	const cleanBody = body.replace(
+	const content = body || ''
+	const cleanBody = content.replace(
 		// removes import lines
 		/^(?:import\s+.*?from\s+['"].*?['"];?\s*|\s*\n)+/g,
 		''

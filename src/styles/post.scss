@@ -17,6 +17,7 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
 
 .text {
   p { margin: 10px 0; }
+
   img {
     width: 100%;
     height: auto;
@@ -24,6 +25,9 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
     border-radius: var(--radius);
     box-sizing: border-box;
   }
+
+  .gap { padding: 15px 0 0; }
+
   .two.img {
     img { width: calc(49% - (5px * 2)); margin: 0 5px; }
   }
