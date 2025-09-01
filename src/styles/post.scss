@@ -1,3 +1,6 @@
+@use './mobile' as *;
+
+
 main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
 
 
@@ -60,4 +63,9 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
       transition: transform var(--trans);
     }
   }
+}
+
+
+@include mobile {
+  main { width: 100%; }
 }

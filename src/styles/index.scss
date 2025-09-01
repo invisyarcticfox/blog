@@ -1,3 +1,6 @@
+@use './mobile' as *;
+
+
 main { width: 75%; margin: 0 auto; }
 
 
@@ -40,4 +43,11 @@ main { width: 75%; margin: 0 auto; }
       }
     }
   }
+}
+
+
+@include mobile {
+  main { width: 100%; }
+  #head { font-size: .7em; }
+  #blogs { width: 100%; font-size: .9em; }
 }
