@@ -32,7 +32,11 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
   .gap { padding: 15px 0 0; }
 
   .two.img {
-    img { width: calc(49% - (5px * 2)); margin: 0 5px; }
+    img {
+      width: calc(49% - (5px * 2));
+      margin: 5px;
+      vertical-align: middle;
+    }
   }
 }
 
