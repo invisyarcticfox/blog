@@ -1,0 +1,54 @@
+---
+title: 'Writing my own jet spotter script'
+pubDate: '10 September 2025 12:52'
+---
+import { Image } from 'astro:assets'
+import whZZ336 from '@img/jetspotter/webhooks/ZZ336.png'
+import pZZ336 from '@img/jetspotter/planes/ZZ336.jpg'
+import wpZZ336 from '@img/jetspotter/ZZ336.PNG'
+import whZM414 from '@img/jetspotter/webhooks/ZM414.png'
+import pZM414 from '@img/jetspotter/planes/ZM414.jpg'
+
+Over the past few days I've been writing my own "JetSpotter" script. Well really it's a couple of scripts that then get turned into JavaScript scripts so that [Node.js](https://nodejs.org) can actually run them, but you get the point.
+
+I got inspired after using [vvanouytsel's jetspotter](https://github.com/vvanouytsel/jetspotter) script and noticing some stuff I wanted to change to fit my liking.
+
+Most notably how often the script checks for planes. vvanouytsel's version checks **every single second** which for me is just very overkill, so I built mine to check every 10-20 seconds which is probably still *too* often but at least its not *as* spammy.
+
+<div class='gap' />
+
+I decided to build my version using [TypeScript](https://typescriptlang.org), compared to the several languages vvanouytsel uses, which isn't *that bad* considering how many features their version has, meanwhile mine is extremely simplistic.
+
+As an example, mine doesn't have a web ui but theirs does. I only support Discord webhooks, meanwhile vvanouytsel supports 3 other places. vvanouytsel allows for a lot of customisation using the terminal, all my config is in a single TS file *(and a .env file)*, essentially forcing to you edit the code yourself if you want to change anything significant.
+
+<div class='gap' />
+
+Some nice things about being able to write my own version is that I can change things to however I want them, without even worrying *too* much about other people using it as I don't really expect anyone to actually use my version.
+
+It's also just kind of fun to write something from scratch and see it come together slowly, although sometimes I do feel as though I'm overcomplicating some parts or not doing something quite right, but thats a matter of using TypeScript really as I'm not at all fluent in it.
+
+Initially the entire thing was just one massive JavaScript script sitting in my Documents folder, co-cordinates to my town and webhook url exposed and all! But it was never intended to be public code so that didn't *really* matter, but it did matter when it came to rewriting it in TS and making the code public *(which really I didn't even need to do, it could've been private from the start lol)*.
+
+<div class='gap' />
+
+I'm not sure why I decided to rewrite the whole thing with TypeScript, I guess it can help with getting more familiar with the language, but tbh having one big file for literally everything was not a good practice. I think my favourite thing about using TypeScript is, well, the types. I really like having the visual of the names of properties as I write the code and all.
+
+<div class='gap' />
+
+Now this isn't at all specific to my version of this, but having a Discord notification for when a military plane is nearby has really helped getting pictures of them. Before I'd just have to be lucky to hear them as they go over and try guess where they are, but now with this I get a notification when theyre nearby, and I have enough time to check where it is and where it *will* be, and even time to switch lenses on my camera.
+
+A perfect example of which:
+
+<Image src={whZZ336} alt={'ZZ336'} height={720} loading={'lazy'} style={{ width: '50%'}} />
+I got a notification about this plane recently! Pretty cool for a specific reason!
+<Image src={wpZZ336} alt={'ZZ336'} height={720} loading={'lazy'} />
+Had enough time to grab my camera and switch to a longer lens, and even enough time to look stupid looking around at the sky.
+<Image src={pZZ336} alt={'ZZ336'} height={720} loading={'lazy'} />
+
+And then on the same day:
+<Image src={whZM414} alt={'ZM414'} height={720} loading={'lazy'} style={{ width: '50%'}} />
+<Image src={pZM414} alt={'ZM414'} height={720} loading={'lazy'} />
+
+Nice! :3
+
+Both of these were taken at 210mm and *extremely* cropped in editing, I've been meaning to get a lens which can go further but as mentioned [here](./re_new-camera), these lenses can get **expensive** so for now I think I'm just going to get a 100-400mm lens but we'll see for now :3
