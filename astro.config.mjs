@@ -11,10 +11,7 @@ export default defineConfig({
   build: { format: 'preserve', },
   trailingSlash: 'never',
   site: 'https://blog.invisyarcticfox.uk',
-  server: {
-    port: 4321,
-    open: '/'
-  },
+  server: { port: 4321, open: '/' },
   adapter: cloudflare({ imageService: 'compile' }),
   integrations: [mdx(), sitemap()],
   markdown: {

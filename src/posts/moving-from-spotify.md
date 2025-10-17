@@ -35,10 +35,6 @@ Think of it like the "AI" (npc's) in Mario Kart for example. They're not generat
 <div class='gap'></div>
 <div class='gap'></div>
 
-*Now where was I? Right, reasons for switching to Apple Music.*
-
-<div class='gap'></div>
-
 One more reason why I decided to switch is that handling local files is much much easier, and somewhat better.
 
 Now I haven't actually needed to import a local file into Spotify for a while so I can't remember the full process *but* on Apple Music it's as simple as just adding an audio file to your library and then adding it to your playlist. It automatically syncs with your phone and it even works on the web player.

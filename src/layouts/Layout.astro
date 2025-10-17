@@ -1,4 +1,5 @@
 ---
+import ClientRouter from 'astro/components/ClientRouter.astro'
 interface Props { title?: string }
 const { title } = Astro.props
 const PgTt = title ? `ItAF - ${title}` : Astro.url
@@ -15,6 +16,7 @@ const PgTt = title ? `ItAF - ${title}` : Astro.url
 		<link rel='stylesheet' href='https://invisyarcticfox.uk/master.css'>
 		<link rel='canonical' href={Astro.url}>
 		<link rel='sitemap' href='/sitemap-index.xml'>
+		<ClientRouter />
 
 		<meta name='title' content={PgTt}>
 		<meta name='description' content='an arctic fox on the internet that likes military aviation :3'>

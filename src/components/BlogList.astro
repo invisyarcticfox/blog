@@ -25,7 +25,7 @@ const postData = posts.map(post => ({
                 &bull;
                 <i>{readTime}</i>
               </span>
-              <div class='title'>{title}</div>
+              <div class='title' transition:name={title}>{title}</div>
             </div>
           </a>
         </li>

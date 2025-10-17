@@ -1,0 +1,27 @@
+---
+import Arrow from '@/assets/arrow.svg'
+
+interface Props {
+  dir: string
+  item: {
+    data: { title: string }
+    id: string
+  }
+  transition: string
+}
+const { dir, item, transition } = Astro.props
+const isPrev = dir === 'prev'
+const disabled = !item
+const href = item ? `./${item.id}` : ''
+const title = item ? item.data.title : undefined
+---
+
+<a
+  class={`btn ${dir} ${disabled ? 'disabled' : ''}`}
+  href={href} title={title}
+  transition:name={transition}
+>
+  {isPrev && <Arrow />}
+  <slot />
+  {!isPrev && <Arrow />}
+</a>

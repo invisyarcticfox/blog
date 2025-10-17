@@ -8,7 +8,33 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
   text-align: center;
   padding-bottom: 25px;
   .date { font-family: monospace; font-size: .75em; }
-  .title { font-weight: bold; font-size: 1.25em; }
+  .title {
+    &.nav {
+      a.btn {
+        &:hover svg { transform: translateX(-3px); }
+        &.next { svg { rotate: 180deg; } }
+        &.disabled {
+          &:hover svg { transform: translateX(3px); }
+          color: var(--fg);
+          opacity: .5;
+          cursor: default;
+        }
+        svg {
+          width: 35px;
+          height: 35px;
+          transform: translateX(3px);
+          transition: transform var(--trans);
+        }
+        display: inline-block;
+        position: relative;
+        width: 35px;
+        height: 35px;
+        top: 5px;
+        text-decoration: none;
+      }
+    }
+    font-weight: bold; font-size: 1.25em;
+  }
   .stats { font-size: .75em; font-style: italic; }
   .sep {
     width: 50%;

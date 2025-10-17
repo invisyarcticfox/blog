@@ -1,9 +1,9 @@
 ---
 import Layout from './Layout.astro'
 import FormattedDate from '@/components/FormattedDate.astro'
+import NavArrows from '@/components/NavArrows.astro'
 
 import '@/styles/post.scss'
-import Arrow from '@/assets/arrow.svg'
 
 const { title, pubDate, re, nav, readTime, charCount } = Astro.props
 const { prev, next } = nav || { prev:null, next:null }
@@ -11,9 +11,15 @@ const { prev, next } = nav || { prev:null, next:null }
 
 <Layout title={`p: ${title}`}>
 	<div class='post'>
-		<div class='info'>
+		<div class='info' transition:name={'info'}>
 			<div class='date'><FormattedDate date={pubDate} showTime /></div>
-			<div class='title'> { re ? ( <> Re: <a href={`./${re}`}>{title.substring(4)}</a> </> ) : title } </div>
+			<div class='title nav'>
+				<NavArrows dir='prev' item={prev} transition={'titleprev'} />
+					{
+						re ? ( <> Re: <a href={`./${re}`}>{title.substring(4)}</a> </> ) : title
+					}
+				<NavArrows dir='next' item={next} transition={'titlenext'} />
+			</div>
 			<div class='stats'>{readTime} - {charCount}</div>
 			<div class='sep' />
 		</div>
@@ -21,19 +27,11 @@ const { prev, next } = nav || { prev:null, next:null }
 	</div>
 
 	<div id='nav'>
-		<a
-			class={`btn prev ${prev ? '' : 'disabled'}`}
-			href={prev ? `./${prev.id}` : '#'}
-			title={prev ? prev.data.title : undefined}
-		>
-			<Arrow /> Prev Post
-		</a>
-		<a
-			class={`btn next ${next ? '' : 'disabled'}`}
-			href={next ? `./${next.id}` : null}
-			title={next ? next.data.title : undefined}
-		>
-			Next Post <Arrow />
-		</a>
+		<NavArrows dir='prev' item={prev} transition={'navprev'}>
+			Prev Post
+		</NavArrows>
+		<NavArrows dir='next' item={next} transition={'navnext'} >
+			Next Post
+		</NavArrows>
 	</div>
 </Layout>
