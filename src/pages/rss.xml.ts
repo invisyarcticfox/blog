@@ -1,9 +1,9 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
-import { etaReadTime } from '@/scripts';
+import rss from '@astrojs/rss'
+import { getCollection } from 'astro:content'
+import { etaReadTime } from '@/scripts/utils'
 
-export async function GET(context: { site: string }) {
-  const posts = await getCollection('post');
+export async function GET(context: { site:string }) {
+  const posts = await getCollection('post')
 
   posts.sort((a, b) => {
     const dateA = new Date(b.data.pubDate)
@@ -20,6 +20,6 @@ export async function GET(context: { site: string }) {
       link: `/p/${id}`,
       pubDate,
       customData: `<readTime>${etaReadTime(body)}</readTime>`
-    })),
-  });
+    }))
+  })
 }

@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content'
 import { render } from 'astro:content'
 import BlogPost from '@/layouts/BlogPost.astro'
 
-import { etaReadTime, charCounter } from '@/scripts'
+import { etaReadTime, charCounter } from '@/scripts/utils'
 
 export async function getStaticPaths() {
 	const posts = await getCollection('post')

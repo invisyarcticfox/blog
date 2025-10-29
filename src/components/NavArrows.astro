@@ -1,5 +1,5 @@
 ---
-import Arrow from '@/assets/arrow.svg'
+import { ArrowLeft, ArrowRight } from '@lucide/astro'
 
 interface Props {
   dir: string
@@ -21,7 +21,7 @@ const title = item ? item.data.title : undefined
   href={href} title={title}
   transition:name={transition}
 >
-  {isPrev && <Arrow />}
+  {isPrev && <ArrowLeft />}
   <slot />
-  {!isPrev && <Arrow />}
+  {!isPrev && <ArrowRight />}
 </a>

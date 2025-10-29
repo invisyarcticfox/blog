@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
 import BlogList from '@/components/BlogList.astro'
+import LetterboxdFeed from '@/components/LetterboxdFeed.astro'
 
 import '@/styles/index.scss'
 
@@ -12,12 +13,24 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 <Layout title='blog'>
 	<div id='head'>
 		<h1>InvisyArcticFox's Blog</h1>
-		<div class='desc'>
-			<div>For when I just wanna write about stuff!</div>
+		<div class='desc'>For when I just wanna write about stuff!</div>
+		<div class='sep'></div>
+	</div>
+
+	<div class='toggles'>
+		<button class='blogs active'>Blogs</button>
+		<button class='letterboxd'>Letterboxd</button>
+		<div class='bg' />
+	</div>
+
+	<div id='container'>
+		<div id='blogs' class='cont fade active'>
+			<BlogList posts={sortedPosts} />
+		</div>
+		<div id='letterboxd' class='cont fade'>
+			<LetterboxdFeed server:defer />
 		</div>
 	</div>
 
-	<div class='sep'></div>
-
-  <BlogList posts={sortedPosts} />
+	<script src='../scripts/letterboxd.ts' />
 </Layout>

@@ -12,17 +12,13 @@ export default defineConfig({
   trailingSlash: 'never',
   site: 'https://blog.invisyarcticfox.uk',
   server: { port: 4321, open: '/' },
-  adapter: cloudflare({ imageService: 'compile' }),
+
+  adapter: cloudflare(),
   integrations: [mdx(), sitemap()],
   markdown: {
-    rehypePlugins: [
-      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]
-    ]
+    rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] } ]]
   },
   redirects: {
-    '/p': {
-      status: 301,
-      destination: '/'
-    }
+    '/p': { status: 301, destination: '/' }
   }
 })
