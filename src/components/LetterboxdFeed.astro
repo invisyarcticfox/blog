@@ -29,6 +29,7 @@ const items = d.items.slice(0,15)
 
 {
   items.map(({ title, year, date, rating, poster, review, rewatch, link }, i) => {
+    const titleLink = link.replace(/\/invisyarcticfox\/|\/\d+\/?$/g, '/');
     const formatDate = new Date(date).toLocaleDateString('en-GB')
     const fullStar = Math.floor(rating)
     const hasHalfStar = rating % 1 !== 0
@@ -40,7 +41,7 @@ const items = d.items.slice(0,15)
           </div>
           <div class='info'>
             <div class='title'>
-              <a href={link.replace('/invisyarcticfox/', '/')} target='_blank' rel='noopener noreferrer'>
+              <a href={titleLink} target='_blank' rel='noopener noreferrer'>
                 <b>{title}</b>
               </a>
               <i>({year})</i>
