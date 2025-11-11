@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+
+interface Props {
+  src: ImageMetadata
+  width?: number
+  loading?: 'eager' | 'lazy'
+}
+const { src, width = 64, loading = 'lazy' } = Astro.props
+
+const filename = src.src.split('/').pop()?.split('.').shift()!
+---
+
+<Image class={'emote'} {src} alt={filename} title={`:${filename}:`} {width} {loading} />

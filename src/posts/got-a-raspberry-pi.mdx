@@ -1,0 +1,44 @@
+---
+title: 'I got a Raspberry Pi 4'
+pubDate: '11 November 2025 16:57'
+---
+import { Image } from 'astro:assets'
+import Emote from '@/components/Emote.astro'
+import taskbar from '@img/pi/taskbar.png'
+import shug from '@emotes/shug.png'
+import pi from '@img/pi/thepi.JPEG'
+
+So, I finally decided to get a [Raspberry Pi](https://raspberrypi.com).
+I decided to get a [Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) as I'm not sure what I'll be using it for just yet other than my [Jetspotter script](./writing-a-jet-spotter) and a simple Astro page.
+
+Ever since I wrote the first version of that script *(it's on version `1.8.0` now)*, it's just been sitting in the background of my PC leaving a terminal window open constantly.
+
+<Image src={taskbar} alt={'taskbar'} style={{ width: '50%' }} loading={'eager'} />
+
+Now, really, this is fine, it doesn't bother me that much and I never actually look at it since I get a notification on Discord on my phone anyway <Emote src={shug} loading={'eager'} />
+
+But recently I've been wanting a way for the script to be running at all times; when I'm asleep, away from home, just all the time. So, say if I'm out in Wales or something, it'd still be nice to have notifications about what military planes fly by my house as I don't want to be leaving my PC on all night and day.
+
+Now, I could just rent an AWS VM, right? Or use another service that lets me have a PC running constantly? While I *could* do that, I'm already paying for a lot of different things like Apple Music, iCloud and... Discord Nitro *Basic*. Although stuff like AWS isnt *too* expensive since it's paid on usage I believe, just paying once for a small PC that isn't going to be doing all too much anyway doesn't sound too bad.
+
+I might put more scripts on it in the future, but right now I just want my Jetspotter script to run constantly.
+
+<div class='gap' />
+
+**However, I made a mistake when buying the Pi initially.**
+
+When ordering a Pi, I first put a Pi 3 in my cart as I thought *"hm, it's not gonna be doing too much, just a couple http requests per minute"* but I had second thoughts and got a Pi 4 with better specs as if I ever decide to put more stuff on it, I'd want it to be powerful enough to handle it, obviously. It's probably going to turn out that even a Pi 3 was more than enough and I could've gotten an even cheaper one, but better safe than sorry :3 I also just wanted ethernet compatibility anyway because I've already hooked up my PC to it, and the router is in my room anyway.
+
+Now the problem was, I initially put a Pi 3 in my cart and put a case and power supply along with it, but I later decided I wanted a Pi 4 and just completely forgot about the case and power supply in my cart and placed an order.
+Welp, the case was too small for a Pi 4 and the power supply was Micro USB while the Pi 4 takes USB-C, so I had to completely return the package, get a refund, and make a whole new order.
+
+<div class='gap' />
+
+But now I have it! Got it hooked up to ethernet and everything!
+<Image src={pi} alt={'pi'} style={{ width: '50%' }} height={720} />
+Got quite a nice looking case too :3
+
+As I said a minute ago, this doesn't and won't have too much going on in it.
+I've already set up the jetspotter script and I've got just a simple [Astro site](https://pi.invisyarcticfox.uk) running already, and I'll probably leave it at that.
+
+I have a couple ideas of stuff I want to self-host, most notably this [Phineas/Lanyard](https://github.com/Phineas/lanyard) running under my own domain, but honestly I doubt anyone really digs into the source of my website and cares enough about what I use to get my Discord status lol though I might find some other cool stuff to self-host later on.

@@ -46,12 +46,18 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
 .text {
   p { margin: 10px 0; }
 
-  img {
+  img:not(.emote) {
     width: 100%;
     height: auto;
     border: 5px solid var(--acc);
     border-radius: var(--radius);
     box-sizing: border-box;
+  }
+  img.emote {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    transform: scale(1.5) translateX(5px);
   }
 
   .gap { padding: 15px 0 0; }

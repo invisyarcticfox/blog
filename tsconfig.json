@@ -7,7 +7,8 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@img/*": ["src/assets/blogs/*"]
+      "@img/*": ["src/assets/blogs/*"],
+      "@emotes/*": ["src/assets/emotes/*"],
     }
   }
 }
