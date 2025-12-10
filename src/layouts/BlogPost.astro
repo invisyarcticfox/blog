@@ -15,9 +15,7 @@ const { prev, next } = nav || { prev:null, next:null }
 			<div class='date'><FormattedDate date={pubDate} showTime /></div>
 			<div class='title nav'>
 				<NavArrows dir='prev' item={prev} transition={'titleprev'} />
-					{
-						re ? ( <> Re: <a href={`./${re}`}>{title.substring(4)}</a> </> ) : title
-					}
+					{ re ? ( <> Re: <a href={`./${re}`}>{title}</a> </> ) : title }
 				<NavArrows dir='next' item={next} transition={'titlenext'} />
 			</div>
 			<div class='stats'>{readTime} - {charCount}</div>
@@ -27,11 +25,7 @@ const { prev, next } = nav || { prev:null, next:null }
 	</div>
 
 	<div id='nav'>
-		<NavArrows dir='prev' item={prev} transition={'navprev'}>
-			Prev Post
-		</NavArrows>
-		<NavArrows dir='next' item={next} transition={'navnext'} >
-			Next Post
-		</NavArrows>
+		<NavArrows dir='prev' item={prev} transition={'navprev'}> Prev Post </NavArrows>
+		<NavArrows dir='next' item={next} transition={'navnext'}> Next Post </NavArrows>
 	</div>
 </Layout>

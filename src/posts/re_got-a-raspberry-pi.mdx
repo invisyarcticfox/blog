@@ -1,0 +1,47 @@
+---
+title: 'Tracking planes with an ADSB receiver'
+pubDate: '10 December 2025 14:05'
+---
+import { Image } from 'astro:assets'
+import Emote from '@/components/Emote.astro'
+import adsb from '@img/pi/adsb/receiver.jpg'
+import antenna from '@img/pi/adsb/antenna.jpg'
+import plot09 from '@img/pi/adsb/plot-09.png'
+import plot10 from '@img/pi/adsb/plot-10.png'
+import wales from '@img/pi/adsb/wales.png'
+import shh from '@emotes/shh.png'
+import api from '@img/pi/adsb/api.png'
+import apidoc from '@img/pi/adsb/apidoc.png'
+
+This is sort of an *`re`* for [the last post](./got-a-raspberry-pi), but I got something new for my already-new Raspberry Pi 4: **an ADS-B Receiver**!
+
+<Image src={adsb} alt={'adsb'} loading={'eager'} />
+<Image src={antenna} alt={'antenna'} style={{ width: '50%' }} />
+
+Every plane uses a transponder to tramsit location and other data on the radio frequency of **1090MHz** (*or **987MHz** in the US*). This radio frequency gets received encoded so it has to be *de*coded by software like [dump1090](https://github.com/antirez/dump1090), [dump1090-fa](https://github.com/edgeofspace/dump1090-fa) or [readsb](https://github.com/wiedehopf/readsb). This data then gets sent to whatever site you like, from [FlightRadar24](https://www.flightradar24.com/), [ADS-B Exchange](https://adsbexchange.com/), or [FlightAware](https://www.flightaware.com/). I personally contribute to FR24 and ADSBExchange as I use them the most.
+
+Another format called "MLAT" often gets used too which uses multiple feeds to triangulate the location of whatever plane is nearby by comparing timestamps between the plane and the receivers. My raspi *can* do this, but since I feed to adsbexchange too, FR24 recommends that MLAT is disabled in the config file.
+
+As of writing this, I've only had this receiver for a day and the information I'm getting is already pretty cool! The range of my receiver is about ~50nmi *(60mi)* which is way further than I thought since I didn't buy an antenna made for outdoors.
+
+<div class='two img'>
+  <Image src={plot09} alt={'plot09'} quality={'max'} />
+  <Image src={plot10} alt={'plot10'} quality={'max'} />
+</div>
+
+Obviously, as a plane gets further away, the track is going to get worse and will eventually fall out of range, thats just normal behaviour, but that range is so far away that I don't feel the need to get an outdoor antenna or try a different location for my indoor one. For planes that I can see with my eyes, the range is way more than enough and the data I receive is extremely detailed.
+
+A couple reasons why I decided to get this receiver are that, well, I had a raspberry pi running already and other than a few [express](https://expressjs.com/) servers running, it wasn't "doing" a whole lot.
+Another reason is that the coverage near me isn't the *best*, especially in Wales since the terrain there varies **a lot**.
+
+<Image src={wales} alt={'wales'} style={{ width: '50%' }} />
+
+The last reason is just so that I can get FR24 ad-free and have access to more data *(that ADSBExchange already gave)* but it's nice to contribute! ADSBExchange is also ad-free if you contribute *but I totally don't have [uBlock](https://github.com/gorhill/uBlock) installed.* <Emote src={shh} />
+
+
+One thing of note is that with the pure ADS-B signal doesn't include whether or not the plane is military, it still shows as much information as it receives, but nothing in that data says *"Hey! I'm military!"* so I'll still have to rely on sites like [ADS-B Exchange](https://adsbexchange.com/) and [airplanes.live](https://airplanes.live) for that data.
+
+<div class='two img'>
+  <Image src={api} alt={'api'}  />
+  <Image src={apidoc} alt={'apidoc'}  />
+</div>
