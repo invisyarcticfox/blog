@@ -1,21 +1,29 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import FormattedDate from '@/components/FormattedDate.astro'
-
 import { etaReadTime } from '@/scripts/utils'
+
 
 type Post = CollectionEntry<'post'>
 const { posts } = Astro.props as { posts: Post[] }
 
-const postData = posts.map(post => ({
-  ...post,
-  readTime: etaReadTime(post.body),
-}))
+const postData = posts.map(post => {
+  let re = null
+	if (post.data.re) {
+		const target = posts.find(p => p.id === post.data.re)
+		if (target) re = { id: target.id, title: target.data.title }
+	}
+  return {
+    ...post,
+    readTime: etaReadTime(post.body),
+    re
+  }
+})
 ---
 
 <ul>
   {
-    postData.map(({ data: { title, pubDate }, id, readTime }) => (
+    postData.map(({ data: { title, pubDate }, id, readTime, re }) => (
       <li class='post'>
         <a href={`/p/${id}`}>
           <div class='text'>
@@ -25,6 +33,7 @@ const postData = posts.map(post => ({
               <i>{readTime}</i>
             </span>
             <div class='title' transition:name={title}>{title}</div>
+            { re ? ( <div class='re' transition:name={re.id}>re: {re.title}</div> ) : null }
           </div>
         </a>
       </li>

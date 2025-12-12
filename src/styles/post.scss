@@ -1,5 +1,23 @@
 @use './mobile' as *;
 
+@mixin navHover {
+  &.next:hover svg { transform: translateX(3px); }
+  &.prev:hover svg { transform: translateX(-3px); }
+  &.disabled {
+    color: var(--fg);
+    opacity: .5;
+    cursor: default;
+    pointer-events: none;
+    svg { transform: translateX(0) !important; }
+  }
+  svg {
+    width: 35px;
+    height: 35px;
+    transform: translateX(0);
+    transition: transform var(--trans);
+  }
+}
+
 
 main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
 
@@ -11,19 +29,8 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
   .title {
     &.nav {
       a.btn {
-        &:hover svg { transform: translateX(-3px); }
-        &.disabled {
-          &:hover svg { transform: translateX(3px); }
-          color: var(--fg);
-          opacity: .5;
-          cursor: default;
-        }
-        svg {
-          width: 35px;
-          height: 35px;
-          transform: translateX(3px);
-          transition: transform var(--trans);
-        }
+        @include navHover;
+
         display: inline-block;
         position: relative;
         width: 35px;
@@ -33,6 +40,12 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
       }
     }
     font-weight: bold; font-size: 1.25em;
+
+    .re {
+      font-family: monospace;
+      font-size: .85em;
+      opacity: .75;
+    }
   }
   .stats { font-size: .75em; font-style: italic; }
   .sep {
@@ -82,25 +95,12 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
   justify-content: space-between;
   padding-bottom: 50px;
   a {
-    &:hover svg { transform: translateX(-3px); }
-    &.disabled {
-      &:hover svg { transform: translateX(3px); }
-      color: var(--fg);
-      opacity: .5;
-      cursor: default;
-    }
+    @include navHover;
+    
     text-decoration: none;
-    svg {
-      width: 35px;
-      height: 35px;
-      vertical-align: sub;
-      transform: translateX(3px);
-      transition: transform var(--trans);
-    }
+    svg { vertical-align: sub; }
   }
 }
 
 
-@include mobile {
-  main { width: 100%; }
-}
+@include mobile { main { width: 100%; } }

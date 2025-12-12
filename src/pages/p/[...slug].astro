@@ -19,17 +19,23 @@ export async function getStaticPaths() {
 		const readTime = etaReadTime(post.body)
 		const charCount = charCounter(post.body)
 
+		let re = null
+		if (post.data.re) {
+			const target = posts.find(p => p.id === post.data.re)
+			if (target) re = { id: target.id, title: target.data.title }
+		}
+
 		return {
 			params: { slug: post.id },
-			props: { post, nav, readTime, charCount },
+			props: { post, nav, readTime, charCount, re },
 		}
 	})
 }
 
-const { post, nav, readTime, charCount } = Astro.props
+const { post, nav, readTime, charCount, re } = Astro.props
 const { Content } = await render(post)
 ---
 
-<BlogPost {...post.data} {nav} {readTime} {charCount}>
+<BlogPost {...post.data} {re} {nav} {readTime} {charCount}>
 	<Content />
 </BlogPost>

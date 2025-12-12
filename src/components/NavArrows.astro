@@ -3,10 +3,7 @@ import { ArrowLeft, ArrowRight } from '@lucide/astro'
 
 interface Props {
   dir: string
-  item: {
-    data: { title: string }
-    id: string
-  }
+  item: { data: { title: string }, id: string }
   transition: string
 }
 const { dir, item, transition } = Astro.props

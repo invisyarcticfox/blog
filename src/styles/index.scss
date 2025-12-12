@@ -3,11 +3,7 @@
 
 main { width: 75%; margin: 0 auto; }
 
-
-#head {
-  text-align: center; 
-  h1 { margin: 0; }
-}
+#head { text-align: center;  h1 { margin: 0; } }
 
 
 .sep {
@@ -77,9 +73,10 @@ main { width: 75%; margin: 0 auto; }
           .text {
             padding: 15px 20px;
             font-size: .75em;
-            .info { time { font-family: monospace; letter-spacing: -1; } }
+            .info { time { font-family: monospace; letter-spacing: -1px; } }
             .title { font-weight: bold; font-size: 1.15em; }
           }
+          .re { font-family: monospace; opacity: .75; }
         }
       }
     }
