@@ -19,7 +19,7 @@ const { prev, next } = nav || { prev:null, next:null }
 				<NavArrows dir='next' item={next} transition={'titlenext'} />
 				{ re ? ( <div class='re' transition:name={re.id}>re: <a href={`./${re.id}`}>{re.title}</a></div> ) : null }
 			</div>
-			<div class='stats'>{readTime} - {charCount}</div>
+			<div class='stats'>{readTime} - {charCount.toLocaleString('en-GB')} characters</div>
 			<div class='sep' />
 		</div>
 		<div class='text'> <slot/> </div>
