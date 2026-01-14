@@ -1,0 +1,52 @@
+---
+title: 'Wanting to move from Windows'
+pubDate: '14 January 2026 11:50'
+---
+import { Image } from 'astro:assets'
+import aiopt from '@img/windows/ai.png'
+import updateshutdown from '@img/windows/updateshutdown.png'
+import backup from '@img/windows/backup.png'
+import storage from '@img/windows/storage.png'
+
+So, for a long while now I've been wanting to move away from Windows.
+I know this'll sound like "<span style='font-family: Comic Sans MS;'>*ohh! windows bad linux good!!1!!!*</span>"
+but it is something I've been thinking about. There are, of course, lots of reasons why, and lots of reasons why *not*.
+
+To list a few:
+
+<div class='list'>
+  1. The dumb AI shit
+      - Stuff like Copilot and how apparently 75% of the OS is "vibe-coded". It's just shit.
+      - Half of the stuff you can't even turn off, you're forced to live with fucking Bonzi Buddy at your side at all times watching everything you do and saving it to their Cloud.
+      - I don't care about your sparkly new AI options just let me open a fucking jpeg.
+      <Image src={aiopt} alt={'ai options'} style={{ width:'50%' }} loading={'eager'} />
+
+  2. The constant updates
+      - Now while it's only like once every two weeks, the constant updates that break anything and everything are just so annoying. Like, yeah, please update my PC so you can [brick my SSD](https://www.neowin.net/news/report-microsofts-latest-windows-11-24h2-update-breaks-ssdshdds-may-corrupt-your-data/)! That would be awesome Microsoft!
+      - Not only that, but the "Update and shut down" button just never fucking works??? Instead of updating and shutting down, it **always** updates and then [restarts anyway](https://www.pcmag.com/news/microsoft-fixes-update-and-shut-down-bug-that-doesnt-actually-turn-off), so whats the point of the fucking option???
+      - And worst of all, why remove the option to *just* shut down?? What if I don't want to spend half an hour updating when I want to go to sleep, only for it to restart anyway???
+      <Image src={updateshutdown} alt={'update shutdown'} style={{ width:'50%' }} />
+
+  3. The constant reminders to backup my PC
+      - This I can *sort of* understand, it's good to backup your PC just in case anything gets lost right? But when it's a splash screen **THIS** obnoxious and stops my startup apps from starting until I skip it, then it's fucking annoying.
+      <Image src={backup} alt={'backup'} style={{ width:'75%' }} />
+      - And sometimes I will get smaller notifications in the corner saying "Hey! Backup your PC now so you don't lose stuff!" but honestly I do not care when half of it is being used to train AI anyway. OneDrive was annoying enough to uninstall and you can't even uninstall Edge. Windows is just OBSESSED with keeping every single little bit of info about you.
+</div>
+
+A lot of the "inspiration" to move away comes from this video by James Lee "[How I broke up with Adobe](https://www.youtube.com/watch?v=lm51xZHZI6g)" where he finally just had enough of Windows and moved to Linux Mint.
+
+Linux Mint might be the OS I choose myself, but I have played around with both Mint and Ubuntu before, but only through the live environment from my USB stick so both were extremely slow to do anything. My raspberry pi runs a version of Debian so perhaps I give that a try? Maybe? Not sure yet.
+
+But, as with most things, there are downsides to moving to a completely now operating system. The most prominent being games. Although, many games and software can be ran using [WINE](https://www.winehq.org/) or [Proton](https://github.com/ValveSoftware/Proton), games with kernel-level anticheat like EasyAntiCheat or BattleEye just straightup cannot be ran most of the time.
+
+From my understanding, EAC *does* have support for Linux as there is a setting to enable Linux clients, but many devs just refuse to turn that setting on. *Looking at you, Tim Sweeney*.
+
+But thankfully, with Proton on Steam, many games can still be ran as long as the anticheat isn't too strict. *Or, y'know, the devs support Linux anyway so there's no need*. But as the Steam Deck, Steam Machine, and Steam Frame get more and more popular, maybe game devs are more likely to support Linux later on as SteamOS is Arch Linux afterall. Or maybe not and the devs fucking hate it instead!
+
+One more final thing that's kind of stopping me from moving is just the storage in my PC.
+<Image src={storage} alt={'storage'} />
+I was planning to dual-boot both Windows and Linux for games and software that don't work on Linux or don't have an equivalent software. Stuff like games with EAC or Adobe software. But as of right now, on just a single OS, I've already used over half of my total 1.5tb capacity, so storing two completely different operating systems between two drives that already hold massive amounts of data just isn't something I can do. I already store Windows and installed programs on my C drive, and I use my D drive for general documents and photos as well as bigger games like Fortnite or Microsoft Flight Simulator.
+
+And dual-booting seems to be complicated on it's own as Windows can just completely overwrite the boot menu after it installs updates because of how invasive it is.
+
+So, in the end, we'll see if I move to Linux either by dual-booting or just completely removing Windows from my system.

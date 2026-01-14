@@ -19,6 +19,7 @@ export default defineConfig({
     rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] } ]]
   },
   redirects: {
-    '/p': { status: 301, destination: '/' }
+    '/p': '/',
+    '/blogs.json': '/api/posts'
   }
 })

@@ -83,6 +83,19 @@ main { position: relative; width: 50%; margin: 0 auto; padding-bottom: 125px; }
       vertical-align: middle;
     }
   }
+
+  .list {
+    ol {
+      li {
+        p { font-size: 1.25em; font-weight: bold; }
+        ul {
+          li { margin: 5px 0; }
+          list-style-type: disc;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
 }
 
 

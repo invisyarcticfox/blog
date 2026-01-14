@@ -17,7 +17,7 @@ const { prev, next } = nav || { prev:null, next:null }
 				<NavArrows dir='prev' item={prev} transition={'titleprev'} />
 				{title}
 				<NavArrows dir='next' item={next} transition={'titlenext'} />
-				{ re ? ( <div class='re' transition:name={re.id}>re: <a href={`./${re.id}`}>{re.title}</a></div> ) : null }
+				{ re && ( <div class='re' transition:name={re.id}>re: <a href={`../${re.href}`}>{re.title}</a></div> ) }
 			</div>
 			<div class='stats'>{readTime} - {charCount.toLocaleString('en-GB')} characters</div>
 			<div class='sep' />

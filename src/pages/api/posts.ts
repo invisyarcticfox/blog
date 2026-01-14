@@ -10,15 +10,15 @@ export async function GET() {
     return dateA.getTime() - dateB.getTime()
   })
 
-  const postData = posts.map(({ data: { title, pubDate, re }, id, body }) => ({
+  const data = posts.map(({ data: { title, pubDate, re }, id, body }) => ({
     title,
-    id,
+    id: id.split('/')[1],
     re,
-    body: `${removeMdStuff(body!).replaceAll('"','\'').slice(0, 150)}...`,
+    body: `${removeMdStuff(body!).replaceAll('"','\'').slice(0, 100)}...`,
     date: pubDate,
     readTime: etaReadTime(body),
     charCount: charCounter(body),
   }))
 
-  return new Response(JSON.stringify(postData, null, 2), { headers: { 'Content-Type': 'application/json' } })
+  return new Response(JSON.stringify(data, null, 2), { headers: { 'Content-Type': 'application/json' } })
 }

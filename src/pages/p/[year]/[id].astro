@@ -1,32 +1,48 @@
 ---
-import { getCollection } from 'astro:content'
-import { render } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import BlogPost from '@/layouts/BlogPost.astro'
-
 import { etaReadTime, charCounter } from '@/scripts/utils'
+
 
 export async function getStaticPaths() {
 	const posts = await getCollection('post')
-	
 	posts.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 
-	
+	function navItem(post:any) {
+		if (!post) return null
+
+		const year = post.data.pubDate.getFullYear()
+		const [, slug] = post.id.split('/')
+		return { title: post.data.title, href: `${year}/${slug}` }
+	}
+
 	return posts.map((post, i) => {
+		const [year, id] = post.id.split('/')
+
 		const nav = {
-			prev: i > 0 ? posts[i - 1] : null,
-			next: i < posts.length - 1 ? posts[i + 1] : null
+			prev: navItem(posts[i - 1]),
+			next: navItem(posts[i + 1])
 		}
+
 		const readTime = etaReadTime(post.body)
 		const charCount = charCounter(post.body)
 
 		let re = null
 		if (post.data.re) {
-			const target = posts.find(p => p.id === post.data.re)
-			if (target) re = { id: target.id, title: target.data.title }
+			const target = posts.find((p) => {
+				const [, slug] = p.id.split('/')
+				return slug === post.data.re
+			})
+
+			if (target) {
+				const year = target.data.pubDate.getFullYear()
+				const [, slug] = target.id.split('/')
+				re = { title: target.data.title, href: `${year}/${slug}` }
+			}
 		}
 
 		return {
-			params: { slug: post.id },
+			params: { year, id },
 			props: { post, nav, readTime, charCount, re },
 		}
 	})
