@@ -1,0 +1,41 @@
+---
+title: 'Switching from Apple Music to Jellyfin'
+pubDate: '16 Febryary 2026 8:53'
+re: 'moving-from-spotify'
+---
+import { Image } from 'astro:assets'
+import apple from '@img/jellyfin/apple.png'
+import folder from '@img/jellyfin/folder.png'
+import jfg1 from '@img/jellyfin/jfg1.png'
+import jfg2 from '@img/jellyfin/jfg2.png'
+import jfg3 from '@img/jellyfin/jfg3.png'
+import smb from '@img/jellyfin/smb.png'
+
+
+So, a few days ago I actually decided to set up a [Jellyfin](https://jellyfin.org) music server on my raspi!
+Over the past few days I've been downloading every single song and album from my [Apple Playlist](https://music.apple.com/gb/playlist/the-vibing/pl.u-leyl0YAsMvbyZPx) either from [Bandcamp](https://bandcamp.com/invisyarcticfox), YouTube with [yt-dlp](https://github.com/yt-dlp/yt-dlp), or from band's websites like [OK Go](https://okgo.net) or [Battle Tapes](https://battletapesband.com).
+
+One thing I decided to do was instead of just downloading single songs from an album, I'll download the entire album and then later on just add that single song to a playlist, so of course that ended up multiplying the amount of songs downloaded by over 5 times.
+
+<div class='two img'>
+  <Image src={apple} alt={'apple'} loading={'eager'} />
+  <Image src={folder} alt={'folder'} loading={'eager'} />
+</div>
+
+There are over 50 artists in this Jellyfin folder, most of which only have one album but a few have two or three.
+
+<Image src={jfg1} alt={'jfg1'} />
+<Image src={jfg2} alt={'jfg2'} />
+<Image src={jfg3} alt={'jfg3'} />
+
+Now, there are a few problems with my current setup. Right now, all of this music is actually stored on my PC, and the folder gets shared to my pi over the network using Samba
+
+<Image src={smb} alt={'smb'} quality={'max'} />
+
+This means that when my PC is off, it's impossible for the music to be loaded.
+**Obviously**, this is bad, as what's the point of making a Jellyfin music server when the music is offline half the time?
+
+Well, right now, it doesn't matter all too much if the music is only online when my PC is online, because I mostly listen to music from my PC anyway, and I just really don't want to store 8 gigs of music on the pi directly. But, I do want to buy [this SSD](https://thepihut.com/products/wd-green-240gb-2-5-ssd) and if I get that, that is where all the music will be stored, perhaps some photography archives too as currently I store my photography nowhere else other than on my PC. 
+
+Having a sort of photo server would be interesting too as I often need to show my photography on my phone and I store nothing there either, so having a remote server where I store everything and where I can access it remotely would be interesting. I already use [Tailscale](https://tailscale.com) as a VPN network to access my pi when I'm away from home, so we'll see I guess.
+At the time of writing this, that SSD is not available to buy as it's out of stock, but the SATA to USB cable recently came back in stock, so hopefully the actual SSD itself comes back soon!
