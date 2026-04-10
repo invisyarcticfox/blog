@@ -5,7 +5,7 @@ import type { ImageMetadata } from 'astro'
 interface Props {
   src: ImageMetadata
   width?: number
-  loading?: 'eager' | 'lazy'
+  loading?: 'eager'|'lazy'
 }
 const { src, width = 64, loading = 'lazy' } = Astro.props
 

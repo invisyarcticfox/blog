@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
-import Layout from '@/layouts/Layout.astro'
-import BlogList from '@/components/BlogList.astro'
+import Layout from '~/layouts/Layout.astro'
+import BlogList from '~/components/BlogList.astro'
 
-import '@/styles/index.scss'
+import '~/styles/index.scss'
 
 const posts = await getCollection('post')
 const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -16,10 +16,8 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 		<div class='sep'></div>
 	</div>
 
-	<div id='container'>
-		<div id='blogs' class='cont'>
-			<BlogList posts={sortedPosts} />
-		</div>
+	<div id='blogs'>
+		<BlogList posts={sortedPosts} />
 	</div>
 
 	<script src='../scripts/letterboxd.ts' />

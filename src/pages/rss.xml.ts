@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
-import { etaReadTime } from '@/scripts/utils'
+import { etaReadTime } from '~/scripts/utils'
 
 export async function GET(context: { site:string }) {
   const posts = await getCollection('post')

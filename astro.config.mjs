@@ -13,7 +13,7 @@ export default defineConfig({
   site: 'https://blog.invisyarcticfox.uk',
   server: { port: 4321, open: '/' },
 
-  adapter: cloudflare(),
+  adapter: cloudflare({ imageService: 'compile' }),
   integrations: [mdx(), sitemap()],
   markdown: {
     rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] } ]]

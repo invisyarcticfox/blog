@@ -1,5 +1,5 @@
 import { getCollection } from 'astro:content'
-import { etaReadTime, charCounter, removeMdStuff } from '@/scripts/utils'
+import { etaReadTime, charCounter, removeMdStuff } from '~/scripts/utils'
 
 export async function GET() {
   const posts = await getCollection('post')

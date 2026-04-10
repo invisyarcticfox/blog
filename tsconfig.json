@@ -4,11 +4,10 @@
   "exclude": ["dist"],
   "compilerOptions": {
     "strictNullChecks": true,
-    "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
-      "@img/*": ["src/assets/blogs/*"],
-      "@emotes/*": ["src/assets/emotes/*"],
+      "~/*": ["./src/*"],
+      "~img/*": ["./src/assets/blogs/*"],
+      "~emotes/*": ["./src/assets/emotes/*"],
     }
   }
 }

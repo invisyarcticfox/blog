@@ -1,9 +1,9 @@
 ---
 import Layout from './Layout.astro'
-import FormattedDate from '@/components/FormattedDate.astro'
-import NavArrows from '@/components/NavArrows.astro'
+import FormattedDate from '~/components/FormattedDate.astro'
+import NavArrows from '~/components/NavArrows.astro'
 
-import '@/styles/post.scss'
+import '~/styles/post.scss'
 
 const { title, pubDate, re, nav, readTime, charCount } = Astro.props
 const { prev, next } = nav || { prev:null, next:null }

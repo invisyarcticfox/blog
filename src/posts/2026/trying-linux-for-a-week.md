@@ -1,7 +1,7 @@
 ---
 title: 'Trying Linux Mint for a week.'
-pubDate: '08 April 2026 21:58'
-re: 'moving-from-windows'
+pubDate: '2 April 2026 09:22'
+re: '2026/moving-from-windows'
 ---
 
 **So, I decided to install Linux Mint about a week or two ago.**
@@ -29,7 +29,7 @@ I forgot to tell him, "Do not wipe the other SSD. That holds my most important f
 
 **Immediate panic.**
 
-As soon as I saw this I practically went into shock seeing all my work fucking deleted. I took it back to him and told him that everything was gone. And he said that he could *try* to recover it, but the SSD is M.2, which apparently is much harder to recover deleted data from. So far, it's been a week of waiting for him trying recover the data, but it is not looking good.
+As soon as I saw this I practically went into shock seeing all my work fucking deleted. I took it back to him and told him that everything was gone. And he said that he could *try* to recover it, but the SSD is M.2, which apparently is much harder to recover deleted data from. So far, it's been days of waiting for him trying recover the data, but it is not looking good.
 
 In hindsight, I probably should've taken out the SSD right? To make sure that the data doesn't get deleted? Yes, I should have. But I had woken up extremely early and just wasn't quite thinking straight.
 
