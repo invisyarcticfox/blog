@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 		if (post.data.re) {
 			const target = posts.find((p) => {
 				const [, slug] = p.id.split('/')
-				return slug === post.data.re
+				return slug === post.data.re?.split('/')[1]
 			})
 
 			if (target) {
