@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '~/layouts/Layout.astro'
+import '~/styles/index.scss'
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+---
+
+<Layout title={'InvisyArcticFox\'s Blog'}>
+	<div class='head'>
+		<div class='top'>InvisyArcticFox's Blog</div>
+		<div class='desc'>For when I just want to write about something!</div>
+	</div>
+
+	<div class='blogs'>
+		<ul>
+			{
+				posts.map(({ id, data: { title, date } }) => (
+					<li>
+						<a href={`/p/${id}`}>
+							<div class='txt'>
+								<div class='top'>{date.toLocaleDateString()}</div>
+								<div class='title'>{title}</div>
+							</div>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</Layout>

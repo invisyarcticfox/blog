@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content'
+import Layout from '~/layouts/Layout.astro'
+import '~/styles/blogs.scss'
+
+export async function getStaticPaths() {
+	const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+	
+	return posts.map(post => {
+		return {
+			params: { id: post.id },
+			props: {
+				post
+			}
+		}
+	})
+}
+const { post } = Astro.props
+const { Content } = await render(post)
+const { id, data: { title, date } } = post
+---
+
+<Layout title={title}>
+  <div class='info' transition:name='blog:info'>
+    <div class='time'>{date.toLocaleDateString()}</div>
+		<div class='title'>{title}</div>
+  </div>
+	<div class='txt'><Content /></div>
+</Layout>

@@ -1,0 +1,43 @@
+main { width: 55%; margin: 0 auto; }
+
+
+.info {
+  &::after {
+    $w: 25%;
+    content: '';
+    position: absolute;
+    display: block;
+    width: $w;
+    height: 3px;
+    background: var(--fg);
+    left: calc(50% - ($w / 2));
+    bottom: -10px;
+  }
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+
+  time { font-size: .85rem; }
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.txt {
+  margin: 50px 0 75px;
+
+  p { margin: .5rem 0; }
+
+  img {
+    width: 100%;
+    height: auto;
+    border: 5px solid var(--acc);
+    border-radius: var(--rad);
+    box-sizing: border-box;
+  }
+}
