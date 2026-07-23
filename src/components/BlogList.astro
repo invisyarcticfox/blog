@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Time from './Time.astro'
+
+type Post = CollectionEntry<'blog'> & { re?: CollectionEntry<'blog'>|null }
+interface Props { posts:Post[] }
+const { posts } = Astro.props
+---
+
+<div class='blogs'>
+	<ul>
+		{
+			posts.map(({ id, data: { title, date }, re }) => (
+				<li>
+					<a href={`/p/${id}`}>
+						<div class='txt'>
+							<div class='top'><Time {date} /></div>
+							<div class='title'>{title}</div>
+							{ re && <div class='re'>re: {re.data.title}</div> }
+						</div>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>

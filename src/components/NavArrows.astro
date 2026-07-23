@@ -1,0 +1,17 @@
+---
+import { ArrowLeft, ArrowRight } from '@lucide/astro'
+type Post = { id:string, data: { title:string } }
+
+interface Props { prev?:Post, next?:Post, title:string }
+const { prev, next, title } = Astro.props
+---
+
+<div class='title'>
+  <div class:list={[ 'icn', 'prev', !prev ? 'disabled' : null ]} transition:name='icn:prev' title={prev?.data.title}>
+    { prev ? <a href={`../${prev.id}`}><ArrowLeft /></a> : <a><ArrowLeft /></a> }
+  </div>
+	{title}
+  <div class:list={[ 'icn', 'next', !next ? 'disabled' : null ]} transition:name='icn:next' title={next?.data.title}>
+    { next ? <a href={`../${next.id}`}><ArrowRight /></a> : <a><ArrowRight /></a> }
+  </div>
+</div>

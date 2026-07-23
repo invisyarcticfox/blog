@@ -25,19 +25,54 @@ main { width: 55%; margin: 0 auto; }
     gap: 5px;
     font-size: 1.5rem;
     font-weight: bold;
+
+    .icn {
+      &.disabled { opacity: .5; pointer-events: none; }
+      &.next:hover a { transform: translateX(5px); }
+      &.prev:hover a { transform: translateX(-5px); }
+      width: 1.15em;
+      height: 1.15em;
+
+      a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        transition: transform var(--trans);
+
+        svg { width: 100%; height: 100%; }
+      }
+    }
   }
+  .re { opacity: .75; font-size: .9rem; font-family: var(--f-mono); }
 }
 
 .txt {
   margin: 50px 0 75px;
 
   p { margin: .5rem 0; }
+  h1, h2, h3, h4, h5, h6 { margin: 1rem 0 .25rem; }
 
   img {
-    width: 100%;
+    width: var(--w, 100%);
     height: auto;
     border: 5px solid var(--acc);
     border-radius: var(--rad);
     box-sizing: border-box;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 5px;
+  }
+
+  .emote {
+    all: unset;
+    width: auto;
+    height: 1em;
+    vertical-align: center;
+    transform: scale(1.25);
+    margin: 0 5px;
   }
 }

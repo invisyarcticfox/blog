@@ -1,0 +1,30 @@
+---
+interface Props { date: Date|string, showTime?: boolean }
+const { date, showTime = false } = Astro.props
+
+const parsedDate = new Date(date)
+
+function ordinal(day:number) {
+  if (day > 3 && day < 21) return `${day}th`
+
+  switch (day % 10) {
+    case 1: return `${day}st`
+    case 2: return `${day}nd`
+    case 3: return `${day}rd`
+    default: return `${day}th`
+  }
+}
+
+const formattedDate = `
+  ${ordinal(Number(parsedDate.toLocaleDateString('en-GB', { timeZone: 'Europe/London', day: 'numeric' })))}
+  ${parsedDate.toLocaleDateString('en-GB', { timeZone: 'Europe/London', month: 'long', year: 'numeric' })}
+`
+const formattedTime = parsedDate.toLocaleTimeString('en-GB', {
+  timeZone: 'Europe/London',
+  hour: '2-digit', minute: '2-digit', hour12: false,
+})
+---
+
+<time datetime={parsedDate.toISOString()} >
+  {formattedDate}{showTime && ` ${formattedTime}`}
+</time>

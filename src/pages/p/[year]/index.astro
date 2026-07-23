@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '~/layouts/Layout.astro'
+import BlogList from '~/components/BlogList.astro'
+import '~/styles/index.scss'
+
+export async function getStaticPaths() {
+	const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  const postMap = new Map(posts.map(post => [post.id, post]))
+  const years = [...new Set(posts.map(post => new Date(post.data.date).getFullYear()))]
+
+  return years.map(year => ({
+    params: { year: String(year) },
+    props: {
+      posts: posts
+        .filter(post => new Date(post.data.date).getFullYear() === year)
+        .map(post => ({
+          ...post,
+          re: post.data.re ? postMap.get(post.data.re) : null
+        }))
+    }
+  }))
+}
+
+const { year } = Astro.params
+const { posts } = Astro.props
+---
+
+<Layout title={`InvisyArcticFox's Blog: ${year}`}>
+  <div class='head'>
+    <div class='top'>InvisyArcticFox's Blog</div>
+    <div class='desc'>Posts from {year}</div>
+  </div>
+  <BlogList {posts} />
+</Layout>
+
+<style>
+  .head::after { --w: 25%; }
+</style>
