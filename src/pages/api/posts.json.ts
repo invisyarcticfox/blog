@@ -4,7 +4,7 @@ import { removeMdStuff, charCount, readTime } from '~/scripts/utils'
 
 
 export const GET:APIRoute = async () => {
-  const posts = await getCollection('blog')
+  const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
   const data = posts.map(({ data: { title, date }, body, id }) => ({
     id: id.split('/').pop(),
@@ -12,7 +12,7 @@ export const GET:APIRoute = async () => {
     date,
     body: removeMdStuff(body!),
     charCount: charCount(body!),
-    readTime: readTime(body!)
+    readTime: readTime(body!),
   }))
 
   return Response.json(data)

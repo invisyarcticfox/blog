@@ -47,12 +47,12 @@ main { width: 55%; margin: 0 auto; }
 }
 
 .txt {
-  margin: 50px 0 75px;
+  margin: 50px 0 125px;
 
   p { margin: .5rem 0; }
   h1, h2, h3, h4, h5, h6 { margin: 1rem 0 .25rem; }
 
-  img {
+  img:not(.emote) {
     width: var(--w, 100%);
     height: auto;
     border: 5px solid var(--acc);
@@ -68,11 +68,13 @@ main { width: 55%; margin: 0 auto; }
   }
 
   .emote {
-    all: unset;
     width: auto;
     height: 1em;
     vertical-align: center;
     transform: scale(1.25);
     margin: 0 5px;
   }
+
+  code { font-size: .9rem; }
+  iframe { width: 100%; height: auto; aspect-ratio: 16/9; }
 }

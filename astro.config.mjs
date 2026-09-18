@@ -31,6 +31,8 @@ export default defineConfig({
       ]
     })
   },
+
+  redirects: { '/api/posts': '/api/posts.json' },
   
   fonts: [
     {

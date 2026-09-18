@@ -13,7 +13,7 @@ export const GET:APIRoute = async () => {
     items: posts.map(post => ({
       link: `p/${post.id}`,
       title: post.data.title,
-      date: post.data.date
+      pubDate: post.data.date
     })),
     trailingSlash: false
   })
